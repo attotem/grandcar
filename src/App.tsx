@@ -7,33 +7,33 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const { t } = useTranslation();
 
-  // useEffect(() => {
-  //   if (window.Telegram?.WebApp) {
-  //     try {
+  useEffect(() => {
+    if (window.Telegram?.WebApp) {
+      try {
 
-  //       window.Telegram.WebApp.ready();
-  //       window.Telegram.WebApp.expand();
-  //       window.Telegram.WebApp.disableVerticalSwipes();
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+        window.Telegram.WebApp.disableVerticalSwipes();
 
 
-  //       try {
-  //         if (window.Telegram.WebApp.requestFullscreen) {
-  //           window.Telegram.WebApp.requestFullscreen();
-  //         }
-  //       } catch (e) {
-  //         setError('Оновіть Telegram до останньої версії для повної підтримки додатку');
-  //       }
+        try {
+          if (window.Telegram.WebApp.requestFullscreen) {
+            window.Telegram.WebApp.requestFullscreen();
+          }
+        } catch (e) {
+          setError('Оновіть Telegram до останньої версії для повної підтримки додатку');
+        }
 
-  //       window.Telegram.WebApp.setHeaderColor("#ffffff"); 
+        window.Telegram.WebApp.setHeaderColor("#ffffff"); 
 
        
-  //     } catch (e) {
-  //       setError('Помилка ініціалізації Telegram WebApp');
-  //     }
-  //   } else {
-  //     setError('Telegram WebApp недоступний. Будь ласка, відкрийте додаток через Telegram');
-  //   }
-  // }, []);
+      } catch (e) {
+        setError('Помилка ініціалізації Telegram WebApp');
+      }
+    } else {
+      setError('Telegram WebApp недоступний. Будь ласка, відкрийте додаток через Telegram');
+    }
+  }, []);
 
   if (error) {
     return (

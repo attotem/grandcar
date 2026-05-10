@@ -26,8 +26,9 @@ export const Login = async (): Promise<boolean> => {
       return false;
     }
 
-    // const hash = "vitalikkrasavchik";
-    const hash = import.meta.env.DEV ? 'vitalikkrasavchik' : getInitData();
+    const hash = "vitalikkrasavchik";
+    // const hash = import.meta.env.DEV ? 'vitalikkrasavchik' : getInitData();
+
     if (!hash) {
       console.error('No Telegram init data available');
       return false;
