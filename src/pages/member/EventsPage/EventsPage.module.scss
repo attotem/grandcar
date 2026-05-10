@@ -1,0 +1,88 @@
+@use '../../../styles/variables' as *;
+
+.page {
+  padding: $spacing-lg;
+  padding-top: $tg-header-height;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $white;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.item {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: rgba($white, 0.03);
+  border-radius: $border-radius-lg;
+  border: 1px solid rgba($white, 0.08);
+}
+
+.dateBlock {
+  min-width: 72px;
+  padding: $spacing-sm $spacing-xs;
+  border-radius: $border-radius-md;
+  background: rgba($gold, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.date {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $gold-light;
+  text-transform: uppercase;
+}
+
+.time {
+  font-size: $font-size-xs;
+  color: $gray;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.eventTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+.meta {
+  font-size: $font-size-xs;
+  color: $gray;
+}
+
+.location {
+  &::before {
+    content: '📍';
+    margin-right: 4px;
+  }
+}
+
+.description {
+  font-size: $font-size-sm;
+  color: $gray;
+}
+

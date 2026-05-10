@@ -1,0 +1,77 @@
+@use '../../../styles/variables' as *;
+
+.page {
+  padding: $spacing-lg;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  height: calc(100vh - #{$footer-height});
+  overflow-y: scroll;
+  background: $black;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $white;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md $spacing-lg;
+  background: rgba($white, 0.03);
+  border-radius: $border-radius-lg;
+  border: 1px solid rgba($white, 0.08);
+  cursor: pointer;
+  transition: background $transition-fast, border-color $transition-fast, transform $transition-fast;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.itemActive {
+  border-color: rgba($gold, 0.8);
+  background: linear-gradient(135deg, rgba($gold, 0.15) 0%, rgba($gold, 0.05) 100%);
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.itemLabel {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+.itemCode {
+  font-size: $font-size-xs;
+  color: $gray;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.checkIcon {
+  font-size: 20px;
+  color: $gold;
+}
+

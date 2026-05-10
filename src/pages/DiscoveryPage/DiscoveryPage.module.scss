@@ -1,0 +1,203 @@
+@use '../../styles/variables' as *;
+
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: $black;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md $spacing-lg;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.backButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($black, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($white, 0.1);
+  border-radius: $border-radius-full;
+  color: $white;
+  font-size: $font-size-lg;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:active {
+    background: rgba($white, 0.1);
+  }
+}
+
+.skipButton {
+  padding: $spacing-sm $spacing-md;
+  background: rgba($black, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($white, 0.1);
+  border-radius: $border-radius-full;
+  color: $gray;
+  font-family: inherit;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  transition: all $transition-fast;
+  margin-top: $tg-header-height;
+
+  &:active {
+    color: $white;
+    background: rgba($white, 0.1);
+  }
+}
+
+.slider {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.slideImage {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba($black, 0.3) 0%,
+    transparent 30%,
+    transparent 60%,
+    rgba($black, 0.8) 100%
+  );
+}
+
+.slideContent {
+  flex: 1;
+  padding: $spacing-xl $spacing-lg;
+  padding-bottom: calc(env(safe-area-inset-bottom) + $spacing-xl);
+  display: flex;
+  flex-direction: column;
+  background: rgba($black, 0.8);
+  backdrop-filter: blur(18px);
+  border-top-left-radius: $border-radius-xl;
+  border-top-right-radius: $border-radius-xl;
+  position: relative;
+  z-index: 5;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: $border-radius-full;
+  background: $gray-dark;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:active {
+    transform: scale(1.2);
+  }
+}
+
+.dotActive {
+  width: 24px;
+  background: $gold;
+}
+
+.slideSubtitle {
+  font-size: $font-size-xs;
+  color: $gold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: $spacing-xs;
+}
+
+.slideTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $white;
+  text-align: center;
+  margin-bottom: $spacing-md;
+}
+
+.slideDescription {
+  font-size: $font-size-base;
+  color: $gray;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.nextButton {
+  margin-top: auto;
+  width: 100%;
+  padding: $spacing-lg;
+  background: $gradient-gold;
+  border: none;
+  border-radius: $border-radius-md;
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $black;
+  cursor: pointer;
+  box-shadow: $shadow-gold;
+  transition: all $transition-normal;
+  position: relative;
+  z-index: 10;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

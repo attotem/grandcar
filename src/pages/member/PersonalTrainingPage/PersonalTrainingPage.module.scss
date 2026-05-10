@@ -1,0 +1,204 @@
+@use '../../../styles/variables' as *;
+
+.page {
+  padding: $spacing-lg;
+  padding-top: $tg-header-height;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  height: calc(100vh - #{$footer-height});
+  overflow-y: scroll;
+  padding-bottom: 100px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md 0;
+}
+
+.backBtn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($white, 0.05);
+  border: 1px solid rgba($white, 0.1);
+  border-radius: $border-radius-full;
+  color: $white;
+  font-size: $font-size-lg;
+  cursor: pointer;
+
+  &:active {
+    background: rgba($white, 0.1);
+  }
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+.spacer {
+  width: 44px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.subtitle {
+  font-size: $font-size-sm;
+  color: $gray;
+  text-align: center;
+  margin-bottom: $spacing-xl;
+}
+
+.trainersList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  flex: 1;
+}
+
+.trainerCard {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: rgba($white, 0.03);
+  border: 1px solid rgba($white, 0.08);
+  border-radius: $border-radius-lg;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:active:not(.unavailable) {
+    transform: scale(0.98);
+  }
+}
+
+.selected {
+  border-color: $gold;
+  background: rgba($gold, 0.1);
+}
+
+.unavailable {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($gold, 0.1);
+  border-radius: $border-radius-lg;
+  font-size: $font-size-xl;
+  color: $gold;
+  flex-shrink: 0;
+}
+
+.trainerInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.trainerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: $spacing-xs;
+}
+
+.trainerName {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-size-sm;
+  color: $gold;
+
+  i {
+    font-size: $font-size-xs;
+  }
+}
+
+.specialty {
+  font-size: $font-size-xs;
+  color: $gray;
+  margin-bottom: $spacing-sm;
+  line-height: 1.4;
+}
+
+.trainerMeta {
+  display: flex;
+  gap: $spacing-md;
+  font-size: $font-size-xs;
+}
+
+.experience {
+  color: $gray;
+}
+
+.price {
+  color: $gold;
+  font-weight: $font-weight-semibold;
+}
+
+.unavailableLabel {
+  display: inline-block;
+  margin-top: $spacing-sm;
+  padding: $spacing-xs $spacing-sm;
+  background: rgba($error, 0.1);
+  border-radius: $border-radius-sm;
+  font-size: $font-size-xs;
+  color: $error;
+}
+
+.checkmark {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $gold;
+  border-radius: $border-radius-full;
+  color: $black;
+  font-size: $font-size-sm;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.bookButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  width: 100%;
+  padding: $spacing-lg;
+  margin-top: $spacing-xl;
+  background: $gradient-gold;
+  border: none;
+  border-radius: $border-radius-lg;
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $black;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba($gold, 0.3);
+
+  &:active {
+    transform: scale(0.98);
+  }
+}

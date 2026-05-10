@@ -1,0 +1,2 @@
+export { IlabLogo } from './IlabLogo';
+

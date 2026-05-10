@@ -1,0 +1,479 @@
+const en = {
+  nav: {
+    home: 'Home',
+    training: 'Training',
+    spa: 'SPA',
+    restaurant: 'Restaurant',
+    profile: 'Profile',
+    schedule: 'Schedule',
+    asistencia: 'Attendance',
+    startups: 'Startups',
+    events: 'Events',
+    more: 'More',
+  },
+  welcome: {
+    subtitle: 'Innovation hub of Madrid',
+    question: 'Welcome to iLAB',
+    description: 'Tell us who you are',
+    member: 'Entrepreneur / startup',
+    nonMember: 'Company / institution',
+  },
+  home: {
+    welcome: 'Welcome,',
+    yourAccess: 'Your access',
+    days: 'days',
+    showQrAtGate: 'Show QR at the turnstile',
+    tapForQr: 'Tap to show QR code',
+    level: 'Level {{level}}',
+    achievements: 'Achievements',
+    topParticipants: 'Top members',
+    you: 'You',
+    today: 'Today',
+    all: 'All',
+    ptShort: 'PT',
+    group: 'Group',
+    noClasses: 'No classes scheduled',
+    book: 'Book',
+    specialOffer: 'Special offer',
+    spaDayDiscount: 'SPA day with 20% off',
+    thisWeekOnly: 'This week only',
+    quickActions: {
+      training: 'Training',
+      spa: 'SPA',
+      restaurant: 'Restaurant',
+      schedule: 'Schedule',
+    },
+    achievementsTitles: {
+      firstWorkout: 'First workout',
+      tenWorkouts: '10 workouts',
+      monthActive: 'Active month',
+      fiftyWorkouts: '50 workouts',
+      hundredWorkouts: '100 workouts',
+    },
+    sessionTitles: {
+      personalTraining: 'Personal training',
+    },
+  },
+  training: {
+    title: 'Training',
+    directions: 'Directions',
+    upcomingClasses: 'Upcoming classes',
+    all: 'All',
+    spots: 'spots',
+    minutes: 'min',
+    schedule: {
+      title: 'Schedule',
+      weekDays: {
+        mon: 'Mon',
+        tue: 'Tue',
+        wed: 'Wed',
+        thu: 'Thu',
+        fri: 'Fri',
+        sat: 'Sat',
+        sun: 'Sun',
+      },
+      filters: {
+        all: 'All',
+        yoga: 'Yoga',
+        functional: 'Functional',
+        pilates: 'Pilates',
+        hiit: 'HIIT',
+        boxing: 'Boxing',
+      },
+      spots: 'spots',
+    },
+    personalTraining: {
+      label: 'Personal training',
+      title: 'Reach your goals faster',
+      text: 'Choose your trainer',
+      experienceSuffix: 'experience',
+      pricePerHour: '{{price}} ₴/hour',
+      noSlots: 'No available slots',
+      cta: 'Book a session',
+    },
+    types: {
+      gym: {
+        title: 'Gym',
+        description: 'Modern equipment and free weights',
+      },
+      group: {
+        title: 'Group classes',
+        description: 'Yoga, Pilates, Functional and more',
+      },
+      personal: {
+        title: 'Personal training',
+        description: 'Individual approach with a trainer',
+      },
+      studio: {
+        title: 'Studios',
+        description: 'Cycling, Boxing, Dance',
+      },
+    },
+  },
+  nonMember: {
+    discovery: {
+      slides: {
+        about: {
+          title: 'Madrid International Lab',
+          subtitle: 'Innovation center',
+          description:
+            'Madrid International Lab is an innovation center of the Madrid City Council located in the historic municipal laboratory building.',
+        },
+        coworking: {
+          title: 'Coworking for startups',
+          subtitle: 'Coworking',
+          description:
+            'Free coworking space for innovative projects and especially foreign startups, with capacity for around 70 people.',
+        },
+        events: {
+          title: 'Events & ecosystem',
+          subtitle: 'Events',
+          description:
+            'Conferences, meetups and webinars on innovation and entrepreneurship that connect startups, companies and institutions.',
+        },
+        contact: {
+          title: 'How to join iLAB',
+          subtitle: 'Join iLAB',
+          description:
+            'If you are a startup or company interested in innovation, contact iLAB to learn about residency and event opportunities.',
+        },
+      },
+      next: 'Next',
+      start: 'Back to main screen',
+    },
+    quiz: {
+      questionLabel: 'Question {{n}}',
+      continue: 'Continue',
+      getResult: 'Get result',
+      q1: {
+        question: 'What is your main goal?',
+        subtitle: 'Choose what resonates most',
+        a: 'Lose weight and improve shape',
+        b: 'Build muscle',
+        c: 'Increase endurance',
+        d: 'Recovery and relaxation',
+      },
+      q2: {
+        question: 'How often do you plan to train?',
+        subtitle: 'Consistency is the key to results',
+        a: '1–2 times per week',
+        b: '3–4 times per week',
+        c: '5+ times per week',
+        d: 'Not sure yet',
+      },
+      q3: {
+        question: 'Which training format suits you best?',
+        subtitle: 'Each format has its advantages',
+        a: 'Personal with a coach',
+        b: 'Group classes',
+        c: 'Solo workouts',
+        d: 'A mix of formats',
+      },
+      q4: {
+        question: "What matters to you besides training?",
+        subtitle: 'Fitness is more than sports',
+        a: 'SPA and recovery',
+        b: 'Healthy nutrition',
+        c: 'Like-minded community',
+        d: 'All of the above',
+      },
+      q5: {
+        question: 'What is your training experience?',
+        subtitle: 'We will adapt the program to you',
+        a: 'Beginner',
+        b: 'Some experience',
+        c: 'Experienced athlete',
+        d: 'Coming back after a break',
+      },
+    },
+    result: {
+      headerTitle: 'Your result',
+      recommendationLabel: 'Recommendation for you',
+      bookTitle: 'Book a',
+      contactTitle: 'Leave your contact',
+      contactSubtitle: 'We will contact you to confirm',
+      nameLabel: 'Name',
+      namePlaceholder: 'Your name',
+      phoneLabel: 'Phone',
+      back: 'Back',
+      submit: 'Book',
+      successTitle: 'Thank you!',
+      successText:
+        'Our manager will contact you shortly to confirm your booking.',
+      bonusLabel: 'Your bonus',
+      bonusTitle: 'Free breakfast',
+      bonusText: 'in our restaurant on your first visit',
+      toHome: 'Home',
+      bonusBannerLabel: 'Bonus for booking',
+      bonusBannerText: 'Free breakfast in the restaurant',
+      booking: {
+        visit: {
+          title: 'Club visit',
+          description: 'Guided tour of the club',
+          duration: '30 min',
+        },
+        assessment: {
+          title: 'Fitness consultation',
+          description: 'Personal assessment with a trainer',
+          duration: '60 min',
+        },
+        spa: {
+          title: 'SPA trial',
+          description: 'Trial SPA treatment',
+          duration: '45 min',
+        },
+      },
+      reco: {
+        recoverySpa: {
+          title: 'Recovery & SPA',
+          description:
+            'Based on your answers, we recommend starting with a recovery program. Our SPA treatments will help relieve stress and prepare your body for training.',
+        },
+        intensive: {
+          title: 'Intensive training',
+          description:
+            'Your goal is transformation! We recommend personal training with our top coaches for maximum results.',
+        },
+        personal: {
+          title: 'Personal training',
+          description:
+            'To build muscle, we recommend an individual program with a personal coach and tailored nutrition.',
+        },
+        balanced: {
+          title: 'Balanced program',
+          description:
+            'We recommend a comprehensive plan that combines training, recovery, and healthy nutrition.',
+        },
+      },
+    },
+  },
+  login: {
+    title: 'Login with DNI/NIE',
+    subtitle: 'Enter your Spanish ID document (DNI or NIE) to access the system',
+    dniLabel: 'DNI / NIE',
+    dniPlaceholder: 'e.g. 12345678A or X1234567B',
+    login: 'Login',
+    notMember: 'Not a member yet?',
+    learnMore: 'Learn more',
+    errors: {
+      invalidDni: 'Enter a valid DNI or NIE',
+    },
+  },
+  recovery: {
+    title: 'Recovery & SPA',
+    categories: {
+      all: 'All',
+      massage: 'Massage',
+      spa: 'SPA',
+      sauna: 'Sauna',
+      pool: 'Pool',
+    },
+    procedures: {
+      relaxMassage: 'Relax massage',
+      sportsMassage: 'Sports massage',
+      spaDetox: 'SPA ritual "Detox"',
+      finnishSauna: 'Finnish sauna',
+      hammam: 'Hammam',
+      pool: 'Pool',
+      jacuzzi: 'Jacuzzi',
+      antiCelluliteMassage: 'Anti-cellulite massage',
+    },
+    book: 'Book',
+    unavailable: 'Unavailable',
+    cancellationPolicy: 'Cancellation is free up to 24 hours before the procedure',
+    minutes: 'min',
+  },
+  restaurant: {
+    title: 'Restaurant',
+    reserveTable: 'Table reservation',
+    categories: {
+      breakfasts: 'Breakfasts',
+      lunches: 'Lunch',
+      drinks: 'Drinks',
+      snacks: 'Snacks',
+    },
+    items: {
+      proteinBowl: {
+        name: 'Protein bowl',
+        description: 'Chicken, quinoa, avocado, vegetables',
+      },
+      veggieOmelet: {
+        name: 'Veggie omelet',
+        description: '3 eggs, tomatoes, spinach, feta',
+      },
+      greekSalad: {
+        name: 'Greek salad',
+        description: 'Fresh vegetables, olives, feta',
+      },
+      steakVeggies: {
+        name: 'Steak with vegetables',
+        description: 'Beef, grilled vegetables',
+      },
+      smoothieEnergy: {
+        name: 'Smoothie "Energy"',
+        description: 'Banana, berries, protein',
+      },
+      greenDetox: {
+        name: 'Green detox',
+        description: 'Spinach, cucumber, apple',
+      },
+      proteinBar: {
+        name: 'Protein bar',
+        description: 'Chocolate, nuts',
+      },
+      nutsMix: {
+        name: 'Mixed nuts',
+        description: 'Almonds, cashews, walnuts',
+      },
+    },
+    cart: {
+      itemsCount: '{{count}} items',
+      order: 'Order',
+    },
+  },
+  foodDetail: {
+    notFound: 'Dish not found',
+    energyPerServing: 'Energy per serving',
+    nutritionFacts: 'Nutrition facts',
+    ingredients: 'Ingredients',
+    addToOrder: 'Add to order',
+    units: {
+      g: 'g',
+      kcal: 'kcal',
+    },
+    macros: {
+      protein: 'Protein',
+      fats: 'Fats',
+      carbs: 'Carbs',
+      fiber: 'Fiber',
+    },
+    ingredientsDict: {
+      chickenFillet: 'Chicken fillet',
+      quinoa: 'Quinoa',
+      avocado: 'Avocado',
+      cucumber: 'Cucumber',
+      tomatoes: 'Tomatoes',
+      spinach: 'Spinach',
+      oliveOil: 'Olive oil',
+      eggs: 'Eggs',
+      feta: 'Feta',
+      butter: 'Butter',
+      bellPepper: 'Bell pepper',
+      redOnion: 'Red onion',
+      olives: 'Olives',
+      beef: 'Beef',
+      zucchini: 'Zucchini',
+      eggplant: 'Eggplant',
+      garlic: 'Garlic',
+      rosemary: 'Rosemary',
+      banana: 'Banana',
+      strawberry: 'Strawberry',
+      blueberry: 'Blueberry',
+      wheyProtein: 'Whey protein',
+      almondMilk: 'Almond milk',
+      apple: 'Apple',
+      celery: 'Celery',
+      ginger: 'Ginger',
+      lemon: 'Lemon',
+      darkChocolate: 'Dark chocolate',
+      almonds: 'Almonds',
+      coconutOil: 'Coconut oil',
+      stevia: 'Stevia',
+      cashews: 'Cashews',
+      walnuts: 'Walnuts',
+    },
+    items: {
+      proteinBowl: {
+        descriptionLong:
+          'Tender grilled chicken fillet with quinoa, fresh avocado, and seasonal vegetables. A perfect balance of protein and healthy fats.',
+        ingredients: [
+          'chickenFillet',
+          'quinoa',
+          'avocado',
+          'cucumber',
+          'tomatoes',
+          'spinach',
+          'oliveOil',
+        ],
+      },
+      veggieOmelet: {
+        descriptionLong:
+          'Fluffy omelet made with three eggs, fresh tomatoes, young spinach, and delicate feta.',
+        ingredients: ['eggs', 'tomatoes', 'spinach', 'feta', 'butter'],
+      },
+      greekSalad: {
+        descriptionLong:
+          'Classic Mediterranean salad with fresh vegetables, Kalamata olives, and authentic Greek feta.',
+        ingredients: [
+          'cucumber',
+          'tomatoes',
+          'bellPepper',
+          'redOnion',
+          'olives',
+          'feta',
+          'oliveOil',
+        ],
+      },
+      steakVeggies: {
+        descriptionLong:
+          'Juicy marbled beef steak cooked medium, served with grilled vegetables and chimichurri sauce.',
+        ingredients: ['beef', 'zucchini', 'eggplant', 'bellPepper', 'garlic', 'rosemary'],
+      },
+      smoothieEnergy: {
+        descriptionLong:
+          'Vitamin-rich smoothie with banana, seasonal berries, and whey protein for post-workout recovery.',
+        ingredients: ['banana', 'strawberry', 'blueberry', 'wheyProtein', 'almondMilk'],
+      },
+      greenDetox: {
+        descriptionLong:
+          'Refreshing detox juice made from spinach, cucumber, and green apple. Perfect for a light reset.',
+        ingredients: ['spinach', 'cucumber', 'apple', 'celery', 'ginger', 'lemon'],
+      },
+      proteinBar: {
+        descriptionLong:
+          'Homemade protein bar with dark chocolate and nuts. Sugar-free, sweetened with stevia.',
+        ingredients: ['wheyProtein', 'darkChocolate', 'almonds', 'coconutOil', 'stevia'],
+      },
+      nutsMix: {
+        descriptionLong:
+          'Premium mix of roasted nuts: almonds, cashews, and walnuts. A great source of healthy fats.',
+        ingredients: ['almonds', 'cashews', 'walnuts'],
+      },
+    },
+  },
+  profile: {
+    title: 'Profile',
+    memberSince: 'Member since {{year}}',
+    qrCodeTitle: 'QR code for entry',
+    qrHint: 'Show code at the turnstile',
+    logout: 'Logout',
+    version: 'Version 1.0.0',
+    menu: {
+      membership: 'Membership',
+      history: 'Service history',
+      results: 'My results',
+      notifications: 'Notifications',
+      language: 'Language',
+      support: 'Support',
+    },
+    membershipValue: 'Premium until {{date}}',
+    languageValue: {
+      en: 'English',
+      uk: 'Ukrainian',
+      ru: 'Russian',
+      es: 'Spanish',
+    },
+  },
+  error: {
+    title: 'Update required',
+    telegramUnavailable:
+      'Telegram WebApp is not available. Please open the app inside Telegram.',
+    initFailed: 'Telegram WebApp initialization failed.',
+    updateTelegram: 'Update Telegram to the latest version for full app support.',
+    retry: 'Try again',
+    hint: 'Make sure you have the latest Telegram version installed',
+  },
+} as const;
+
+export default en;
+

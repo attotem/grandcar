@@ -1,0 +1,221 @@
+@use '../../../styles/variables' as *;
+
+.page {
+  padding: $spacing-lg;
+  padding-top: $tg-header-height;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  height: calc(100vh - #{$footer-height});
+  overflow-y: scroll;
+  padding-bottom: 100px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $white;
+}
+
+.tableBtn {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: rgba($gold, 0.1);
+  border: 1px solid rgba($gold, 0.3);
+  border-radius: $border-radius-full;
+  font-family: inherit;
+  font-size: $font-size-xs;
+  color: $gold;
+  cursor: pointer;
+
+  &:active {
+    background: rgba($gold, 0.2);
+  }
+}
+
+.categories {
+  display: flex;
+  gap: $spacing-sm;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin: 0 (-$spacing-lg);
+  padding: 0 $spacing-lg;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.categoryBtn {
+  padding: $spacing-sm $spacing-md;
+  background: transparent;
+  border: 1px solid rgba($white, 0.1);
+  border-radius: $border-radius-full;
+  font-family: inherit;
+  font-size: $font-size-sm;
+  color: $gray;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:active {
+    background: rgba($white, 0.05);
+  }
+}
+
+.active {
+  background: rgba($gold, 0.15);
+  border-color: $gold;
+  color: $gold;
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.menuCard {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-sm;
+  background: rgba($white, 0.03);
+  border: 1px solid rgba($white, 0.08);
+  border-radius: $border-radius-lg;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:active {
+    background: rgba($white, 0.06);
+    transform: scale(0.98);
+  }
+}
+
+.menuImage {
+  width: 72px;
+  height: 72px;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.menuInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.menuName {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $white;
+  margin-bottom: $spacing-xs;
+}
+
+.menuDescription {
+  font-size: $font-size-xs;
+  color: $gray;
+  margin-bottom: $spacing-sm;
+  line-height: 1.4;
+}
+
+.calories {
+  font-size: $font-size-xs;
+  color: $success;
+}
+
+.menuAction {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: $spacing-sm;
+}
+
+.price {
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $white;
+}
+
+.addBtn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($gold, 0.1);
+  border: 1px solid rgba($gold, 0.3);
+  border-radius: $border-radius-full;
+  color: $gold;
+  font-size: $font-size-base;
+  cursor: pointer;
+
+  &:active {
+    background: $gold;
+    color: $black;
+  }
+}
+
+.cartBar {
+  position: fixed;
+  bottom: 80px;
+  left: $spacing-lg;
+  right: $spacing-lg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md $spacing-lg;
+  background: $gold;
+  border-radius: $border-radius-xl;
+  box-shadow: 0 8px 32px rgba($gold, 0.4);
+}
+
+.cartInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cartCount {
+  font-size: $font-size-xs;
+  color: rgba($black, 0.7);
+}
+
+.cartTotal {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $black;
+}
+
+.orderBtn {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: $black;
+  border: none;
+  border-radius: $border-radius-md;
+  font-family: inherit;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $white;
+  cursor: pointer;
+
+  &:active {
+    opacity: 0.8;
+  }
+}

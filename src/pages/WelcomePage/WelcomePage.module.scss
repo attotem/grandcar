@@ -1,0 +1,219 @@
+@use '../../styles/variables' as *;
+
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: $surface-page;
+  overflow-y: auto;
+  padding-bottom: calc(#{$footer-height} + env(safe-area-inset-bottom) + $spacing-xl);
+}
+
+/* ── App header ───────────────────────────────────────────── */
+
+.appHeader {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--Black_titles, #{$brand-black-title});
+  border-bottom: 1px solid rgba($brand-white, 0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  padding: $spacing-sm $spacing-md;
+  padding-top: calc($tg-header-height + $spacing-xs);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+  max-width: 60%;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ── Filter button ────────────────────────────────────────── */
+
+.filterBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: 8px 14px;
+  background: rgba($brand-white, 0.08);
+  border: 1.5px solid rgba($brand-white, 0.14);
+  border-radius: $border-radius-full;
+  font-family: inherit;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $brand-white;
+  cursor: pointer;
+  transition: all $transition-fast;
+  flex-shrink: 0;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: rgba($brand-white, 0.85);
+    flex-shrink: 0;
+  }
+
+  &:active {
+    background: rgba($brand-white, 0.16);
+    transform: scale(0.96);
+  }
+}
+
+.filterBtnActive {
+  border-color: $brand-red;
+  background: $brand-red;
+  color: $brand-white;
+  box-shadow: 0 4px 14px rgba($brand-red, 0.35);
+
+  svg {
+    color: $brand-white;
+  }
+}
+
+.filterBtnLabel {
+  white-space: nowrap;
+}
+
+.filterBadge {
+  width: 18px;
+  height: 18px;
+  background: $brand-red;
+  border-radius: $border-radius-full;
+  font-size: 11px;
+  font-weight: $font-weight-bold;
+  color: $brand-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Content ──────────────────────────────────────────────── */
+
+.content {
+  flex: 1;
+  padding: $spacing-md $spacing-md 0;
+}
+
+.listMeta {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $brand-grey-middle;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: $spacing-md;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.stateBox {
+  margin-top: $spacing-2xl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  text-align: center;
+  padding: $spacing-xl $spacing-lg;
+}
+
+.stateIcon {
+  font-size: 40px;
+  margin-bottom: $spacing-xs;
+}
+
+.stateText {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $brand-black-title;
+}
+
+.stateSub {
+  font-size: $font-size-sm;
+  color: $brand-grey-middle;
+}
+
+.errorMessageInline {
+  font-size: $font-size-sm;
+  color: $brand-red;
+  text-align: center;
+  padding: $spacing-xl;
+}
+
+/* ── Skeleton loader ──────────────────────────────────────── */
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+}
+
+@media (min-width: 480px) {
+  .skeletonGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.skeletonCard {
+  background: $surface-card;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+}
+
+.skeletonImage {
+  width: 100%;
+  padding-bottom: 62%;
+  background: linear-gradient(90deg, #eef0f4 25%, #e3e6eb 50%, #eef0f4 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+.skeletonInfo {
+  padding: $spacing-sm $spacing-md $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeletonLine {
+  height: 12px;
+  border-radius: $border-radius-full;
+  background: linear-gradient(90deg, #eef0f4 25%, #e3e6eb 50%, #eef0f4 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+
+  &:nth-child(1) { width: 60%; }
+  &:nth-child(2) { width: 40%; height: 16px; }
+  &:nth-child(3) { width: 75%; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Cars grid ────────────────────────────────────────────── */
+
+.carsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+}
+
+@media (min-width: 480px) {
+  .carsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

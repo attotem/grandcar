@@ -1,0 +1,323 @@
+@use '../../../styles/variables' as *;
+
+.page {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: calc(100vh - #{$footer-height});
+  overflow-y: scroll;
+  padding-bottom: 100px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md $spacing-lg;
+}
+
+.backBtn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($white, 0.05);
+  border: 1px solid rgba($white, 0.1);
+  border-radius: $border-radius-full;
+  color: $white;
+  font-size: $font-size-lg;
+  cursor: pointer;
+
+  &:active {
+    background: rgba($white, 0.1);
+  }
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+.spacer {
+  width: 44px;
+}
+
+// Hero Image
+.heroImage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  max-height: 410px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.heroOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to top, $black 0%, transparent 100%);
+}
+
+.content {
+  flex: 1;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.notFound {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  color: $gray;
+
+  i {
+    font-size: 48px;
+  }
+
+  button {
+    padding: $spacing-sm $spacing-lg;
+    background: rgba($white, 0.1);
+    border: none;
+    border-radius: $border-radius-md;
+    color: $white;
+    cursor: pointer;
+  }
+}
+
+// Main Info
+.mainInfo {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.category {
+  display: inline-block;
+  width: fit-content;
+  padding: $spacing-xs $spacing-sm;
+  background: rgba($gold, 0.15);
+  border-radius: $border-radius-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $gold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.name {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $white;
+}
+
+.description {
+  font-size: $font-size-sm;
+  color: $gray;
+  line-height: 1.6;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: $spacing-sm;
+}
+
+.weight {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-size-sm;
+  color: $gray;
+
+  i {
+    color: $gold;
+  }
+}
+
+.price {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $white;
+}
+
+// Calories Card
+.caloriesCard {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+  background: linear-gradient(135deg, rgba($gold, 0.15) 0%, rgba($gold, 0.05) 100%);
+  border: 1px solid rgba($gold, 0.3);
+  border-radius: $border-radius-xl;
+}
+
+.caloriesMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.caloriesValue {
+  font-size: 36px;
+  font-weight: $font-weight-bold;
+  color: $gold;
+  line-height: 1;
+}
+
+.caloriesLabel {
+  font-size: $font-size-sm;
+  color: $gray;
+  text-transform: uppercase;
+}
+
+.caloriesInfo {
+  flex: 1;
+
+  p {
+    font-size: $font-size-sm;
+    color: $gray;
+  }
+}
+
+// Macros Section
+.macrosSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+.macrosBar {
+  display: flex;
+  height: 8px;
+  border-radius: $border-radius-full;
+  overflow: hidden;
+  background: rgba($white, 0.1);
+}
+
+.macroSegment {
+  height: 100%;
+  transition: width $transition-normal;
+}
+
+.macrosGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-sm;
+}
+
+.macroCard {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-md;
+  background: rgba($white, 0.03);
+  border: 1px solid rgba($white, 0.08);
+  border-radius: $border-radius-md;
+}
+
+.macroIndicator {
+  width: 4px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+.macroInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.macroLabel {
+  font-size: $font-size-xs;
+  color: $gray;
+}
+
+.macroValue {
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $white;
+}
+
+// Ingredients
+.ingredientsSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.ingredientsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.ingredientTag {
+  padding: $spacing-sm $spacing-md;
+  background: rgba($white, 0.05);
+  border: 1px solid rgba($white, 0.1);
+  border-radius: $border-radius-full;
+  font-size: $font-size-sm;
+  color: $white-muted;
+}
+
+// Footer
+.footer {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  padding: $spacing-md $spacing-lg;
+  background: linear-gradient(to top, $black 80%, transparent);
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: $spacing-lg;
+  background: $gradient-gold;
+  border: none;
+  border-radius: $border-radius-lg;
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $black;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba($gold, 0.3);
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.addPrice {
+  padding: $spacing-xs $spacing-sm;
+  background: rgba($black, 0.2);
+  border-radius: $border-radius-sm;
+}

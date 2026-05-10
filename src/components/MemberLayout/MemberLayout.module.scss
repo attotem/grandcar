@@ -1,0 +1,92 @@
+@use '../../styles/variables' as *;
+
+.layout {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: $surface-page;
+}
+
+.main {
+  flex: 1;
+  overflow: hidden;
+}
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: $surface-card;
+  backdrop-filter: blur(16px);
+  border-top: 1px solid $border-divider;
+  box-shadow: 0 -2px 16px rgba($brand-black-title, 0.06);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.navContent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: $footer-height;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex: 1;
+  height: 100%;
+  background: transparent;
+  border: none;
+  color: $brand-grey-middle;
+  cursor: pointer;
+  transition: color $transition-fast;
+  position: relative;
+
+  i {
+    font-size: 22px;
+    transition: all $transition-fast;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.navItemActive {
+  color: $brand-red;
+
+  i {
+    filter: none;
+  }
+
+  .navLabel {
+    color: $brand-red;
+    font-weight: $font-weight-semibold;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 3px;
+    background: $brand-red;
+    border-radius: 0 0 $border-radius-full $border-radius-full;
+  }
+}
+
+.navLabel {
+  font-size: 10px;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.3px;
+  color: $brand-grey-middle;
+  transition: color $transition-fast;
+}

@@ -1,0 +1,296 @@
+@use '../../styles/variables' as *;
+
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: $brand-light;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  padding-top: $tg-header-height;
+}
+
+.backgroundOrb {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba($brand-red, 0.16) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.header {
+  padding: $spacing-md $spacing-lg;
+}
+
+.backButton {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $brand-white;
+  border: 1px solid $border-divider;
+  border-radius: $border-radius-full;
+  color: $brand-black-title;
+  font-size: $font-size-lg;
+  cursor: pointer;
+  transition: all $transition-fast;
+  box-shadow: $shadow-sm;
+
+  &:active {
+    background: $brand-light;
+    transform: scale(0.95);
+  }
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-lg;
+  padding-bottom: calc(env(safe-area-inset-bottom) + $spacing-xl);
+  position: relative;
+  z-index: 1;
+}
+
+.logoSection {
+  text-align: center;
+  margin-bottom: $spacing-2xl;
+}
+
+.logo {
+  margin-bottom: $spacing-md;
+}
+
+.logoIcon {
+  font-size: 56px;
+  color: $brand-red;
+  filter: drop-shadow(0 0 30px rgba($brand-red, 0.35));
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $brand-black-title;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  background: $brand-white;
+  padding: $spacing-xl;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-md;
+  border: 1px solid $border-divider;
+}
+
+.formHeader {
+  text-align: center;
+}
+
+.formTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $brand-black-title;
+  margin-bottom: $spacing-sm;
+}
+
+.formSubtitle {
+  font-size: $font-size-sm;
+  color: $brand-grey-middle;
+  line-height: 1.5;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $brand-gray;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.phoneInput {
+  display: flex;
+  align-items: center;
+  background: $brand-light;
+  border: 1.5px solid $border-subtle;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  transition: all $transition-fast;
+
+  &:focus-within {
+    border-color: $brand-red;
+    background: $brand-white;
+    box-shadow: 0 0 0 4px rgba($brand-red, 0.12);
+  }
+}
+
+.phonePrefix {
+  padding: $spacing-md $spacing-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $brand-grey-middle;
+  background: $brand-white;
+  border-right: 1px solid $border-subtle;
+}
+
+.input {
+  flex: 1;
+  padding: $spacing-md $spacing-lg;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  color: $brand-black-title;
+  outline: none;
+  letter-spacing: 1.5px;
+
+  &::placeholder {
+    color: $brand-grey-middle;
+    letter-spacing: 1px;
+  }
+}
+
+.codeInputWrapper {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: center;
+  position: relative;
+}
+
+.codeBox {
+  width: 60px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $brand-light;
+  border: 1.5px solid $border-subtle;
+  border-radius: $border-radius-lg;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $brand-black-title;
+  transition: all $transition-fast;
+}
+
+.codeBoxFilled {
+  border-color: $brand-red;
+  background: rgba($brand-red, 0.06);
+}
+
+.codeHiddenInput {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  font-size: $font-size-lg;
+}
+
+.error {
+  font-size: $font-size-sm;
+  color: $brand-red;
+  text-align: center;
+}
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  width: 100%;
+  padding: $spacing-lg $spacing-xl;
+  background: $brand-red;
+  border: none;
+  border-radius: $border-radius-lg;
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $brand-white;
+  cursor: pointer;
+  box-shadow: $shadow-red;
+  transition: all $transition-normal;
+  min-height: 56px;
+  letter-spacing: 0.4px;
+
+  &:hover:not(:disabled) {
+    background: $brand-red-dark;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+    box-shadow: 0 4px 16px rgba($brand-red, 0.25);
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+
+.loader {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba($brand-white, 0.35);
+  border-top-color: $brand-white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.resendButton {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: $font-size-sm;
+  color: $brand-grey-middle;
+  cursor: pointer;
+  text-align: center;
+  padding: $spacing-sm;
+  transition: color $transition-fast;
+
+  &:active {
+    color: $brand-black-title;
+  }
+}
+
+.helpText {
+  margin-top: auto;
+  text-align: center;
+  font-size: $font-size-sm;
+  color: $brand-grey-middle;
+  padding-top: $spacing-xl;
+}
+
+.linkButton {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $brand-red;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+
+  &:active {
+    color: $brand-red-dark;
+  }
+}

@@ -1,0 +1,78 @@
+@use '../../../styles/variables' as *;
+
+.page {
+  padding: $spacing-lg;
+  padding-top: $tg-header-height;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.header {
+  display: flex;
+  gap: $spacing-md;
+  align-items: flex-start;
+}
+
+.dateBlock {
+  min-width: 72px;
+  padding: $spacing-sm $spacing-xs;
+  border-radius: $border-radius-md;
+  background: rgba($gold, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.date {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $gold-light;
+  text-transform: uppercase;
+}
+
+.time {
+  font-size: $font-size-xs;
+  color: $gray;
+}
+
+.headerText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $white;
+}
+
+.meta {
+  font-size: $font-size-xs;
+  color: $gray;
+}
+
+.location {
+  &::before {
+    content: '📍';
+    margin-right: 4px;
+  }
+}
+
+.body {
+  background: rgba($white, 0.03);
+  border-radius: $border-radius-lg;
+  border: 1px solid rgba($white, 0.08);
+  padding: $spacing-lg;
+}
+
+.description {
+  font-size: $font-size-sm;
+  color: $white-muted;
+  line-height: 1.5;
+}
+

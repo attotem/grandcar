@@ -1,0 +1,437 @@
+@use '../../styles/variables' as *;
+
+.page {
+  padding: 24px;
+  /* padding-top: 80px; */
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  height: 100vh;
+  overflow-y: scroll;
+  background: #0a0a0a;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md 0;
+  margin-bottom: $spacing-md;
+}
+
+.backButton {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($white, 0.05);
+  border: 1px solid rgba($white, 0.1);
+  border-radius: $border-radius-full;
+  color: $white;
+  font-size: $font-size-lg;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:active {
+    background: rgba($white, 0.1);
+    transform: scale(0.95);
+  }
+}
+
+.headerTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+.headerSpacer {
+  width: 44px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+// Recommendation Card
+.recommendationCard {
+  background: linear-gradient(135deg, rgba($gold, 0.1) 0%, rgba($gold, 0.02) 100%);
+  border: 1px solid rgba($gold, 0.2);
+  border-radius: $border-radius-xl;
+  padding: $spacing-xl;
+  text-align: center;
+}
+
+.recommendationHeader {
+  margin-bottom: $spacing-lg;
+}
+
+.recommendationLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $gold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: $spacing-xs $spacing-sm;
+  background: rgba($gold, 0.15);
+  border-radius: $border-radius-sm;
+}
+
+.recommendationIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto $spacing-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-xl;
+  font-size: 36px;
+}
+
+.recommendationTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $white;
+  margin-bottom: $spacing-sm;
+}
+
+.recommendationDescription {
+  font-size: $font-size-sm;
+  color: $gray;
+  line-height: 1.6;
+}
+
+// Booking Section
+.bookingSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+.bookingOptions {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.bookingCard {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  width: 100%;
+  padding: $spacing-md;
+  background: rgba($white, 0.03);
+  border: 1px solid rgba($white, 0.08);
+  border-radius: $border-radius-lg;
+  cursor: pointer;
+  transition: all $transition-normal;
+  text-align: left;
+
+  &:active {
+    background: rgba($white, 0.06);
+    border-color: $gold;
+    transform: scale(0.98);
+  }
+}
+
+.bookingIcon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($gold, 0.1);
+  border-radius: $border-radius-md;
+  font-size: $font-size-xl;
+  color: $gold;
+  flex-shrink: 0;
+}
+
+.bookingInfo {
+  flex: 1;
+}
+
+.bookingTitle {
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $white;
+  margin-bottom: $spacing-xs;
+}
+
+.bookingDescription {
+  font-size: $font-size-xs;
+  color: $gray;
+}
+
+.bookingMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: $spacing-xs;
+  color: $gray;
+}
+
+.bookingDuration {
+  font-size: $font-size-xs;
+  color: $gold;
+}
+
+// Form Section
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.formSubtitle {
+  font-size: $font-size-sm;
+  color: $gray;
+  margin-top: -$spacing-sm;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $white-muted;
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-md $spacing-lg;
+  background: rgba($white, 0.05);
+  border: 1px solid rgba($white, 0.1);
+  border-radius: $border-radius-md;
+  font-family: inherit;
+  font-size: $font-size-base;
+  color: $white;
+  outline: none;
+  transition: all $transition-fast;
+
+  &::placeholder {
+    color: $gray;
+  }
+
+  &:focus {
+    border-color: $gold;
+    background: rgba($gold, 0.05);
+  }
+}
+
+.formActions {
+  display: flex;
+  gap: $spacing-md;
+  margin-top: $spacing-md;
+}
+
+.backFormButton {
+  flex: 1;
+  padding: $spacing-md;
+  background: transparent;
+  border: 1px solid $gray-dark;
+  border-radius: $border-radius-md;
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $white;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:active {
+    background: rgba($white, 0.05);
+  }
+}
+
+.submitButton {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-md;
+  background: $gradient-gold;
+  border: none;
+  border-radius: $border-radius-md;
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $black;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// Bonus Banner
+.bonusBanner {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: linear-gradient(135deg, rgba($gold, 0.15) 0%, rgba($gold, 0.05) 100%);
+  border: 1px solid rgba($gold, 0.3);
+  border-radius: $border-radius-lg;
+  margin-top: auto;
+}
+
+.bonusBannerIcon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $gold;
+  border-radius: $border-radius-md;
+  font-size: $font-size-lg;
+  color: $black;
+  flex-shrink: 0;
+}
+
+.bonusBannerContent {
+  flex: 1;
+}
+
+.bonusBannerLabel {
+  font-size: $font-size-xs;
+  color: $gold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: $spacing-xs;
+}
+
+.bonusBannerText {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+// Success Screen
+.successScreen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
+  text-align: center;
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba($success, 0.2) 0%, rgba($success, 0.05) 100%);
+  border-radius: $border-radius-full;
+  font-size: 40px;
+  color: $success;
+  margin-bottom: $spacing-xl;
+}
+
+.successTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $white;
+  margin-bottom: $spacing-sm;
+}
+
+.successText {
+  font-size: $font-size-base;
+  color: $gray;
+  line-height: 1.6;
+  margin-bottom: $spacing-xl;
+}
+
+.bonusCard {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  width: 100%;
+  padding: $spacing-lg;
+  background: linear-gradient(135deg, rgba($gold, 0.15) 0%, rgba($gold, 0.05) 100%);
+  border: 1px solid rgba($gold, 0.3);
+  border-radius: $border-radius-xl;
+  margin-bottom: $spacing-xl;
+  text-align: left;
+}
+
+.bonusIcon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $gold;
+  border-radius: $border-radius-lg;
+  font-size: $font-size-xl;
+  color: $black;
+  flex-shrink: 0;
+}
+
+.bonusContent {
+  flex: 1;
+}
+
+.bonusLabel {
+  font-size: $font-size-xs;
+  color: $gold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: $spacing-xs;
+}
+
+.bonusTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $white;
+  margin-bottom: $spacing-xs;
+}
+
+.bonusText {
+  font-size: $font-size-sm;
+  color: $gray;
+}
+
+.homeButton {
+  width: 100%;
+  padding: $spacing-lg;
+  background: $gradient-gold;
+  border: none;
+  border-radius: $border-radius-lg;
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $black;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}

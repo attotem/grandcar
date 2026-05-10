@@ -1,0 +1,52 @@
+@use '../../styles/variables' as *;
+
+.logo {
+  margin-bottom: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+}
+
+.logoBadge {
+  width: 96px;
+  height: 96px;
+  border-radius: $border-radius-xl;
+  background: $brand-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 32px rgba($brand-red, 0.2);
+  border: 1px solid $border-divider;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.logoMain {
+  font-size: 32px;
+  font-weight: $font-weight-bold;
+  color: $brand-black-title;
+  letter-spacing: -0.5px;
+}
+
+.logoSecondary {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $brand-grey-middle;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}

@@ -1,0 +1,49 @@
+@use '../../../styles/variables' as *;
+
+.page {
+  padding: $spacing-lg;
+  padding-top: $tg-header-height;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $white;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.card {
+  text-align: left;
+  padding: $spacing-lg;
+  background: rgba($white, 0.03);
+  border-radius: $border-radius-lg;
+  border: 1px solid rgba($white, 0.08);
+  color: $white;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  h2 {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-xs;
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: $gray;
+  }
+
+  &:active {
+    transform: scale(0.97);
+    border-color: $gold;
+  }
+}
+

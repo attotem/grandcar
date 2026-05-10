@@ -1,0 +1,480 @@
+const ru = {
+  nav: {
+    home: 'Главная',
+    training: 'Тренировки',
+    spa: 'SPA',
+    restaurant: 'Ресторан',
+    profile: 'Профиль',
+    schedule: 'Расписание',
+    asistencia: 'Посещаемость',
+    startups: 'Стартапы',
+    events: 'События',
+    more: 'Еще',
+  },
+  welcome: {
+    subtitle: 'Центр инноваций Мадрида',
+    question: 'Добро пожаловать в iLAB',
+    description: 'Расскажите, кто вы',
+    member: 'Предприниматель / стартап',
+    nonMember: 'Компания / организация',
+  },
+  home: {
+    welcome: 'Добро пожаловать,',
+    yourAccess: 'Ваш доступ',
+    days: 'дней',
+    showQrAtGate: 'Покажите QR на турникете',
+    tapForQr: 'Нажмите для QR-кода',
+    level: 'Уровень {{level}}',
+    achievements: 'Достижения',
+    topParticipants: 'Топ участников',
+    you: 'Вы',
+    today: 'Сегодня',
+    all: 'Все',
+    ptShort: 'ПТ',
+    group: 'Группа',
+    noClasses: 'Нет запланированных занятий',
+    book: 'Записаться',
+    specialOffer: 'Специальное предложение',
+    spaDayDiscount: 'SPA-день со скидкой 20%',
+    thisWeekOnly: 'Только на этой неделе',
+    quickActions: {
+      training: 'Тренировки',
+      spa: 'SPA',
+      restaurant: 'Ресторан',
+      schedule: 'Расписание',
+    },
+    achievementsTitles: {
+      firstWorkout: 'Первая тренировка',
+      tenWorkouts: '10 тренировок',
+      monthActive: 'Месяц активности',
+      fiftyWorkouts: '50 тренировок',
+      hundredWorkouts: '100 тренировок',
+    },
+    sessionTitles: {
+      personalTraining: 'Персональная тренировка',
+    },
+  },
+  training: {
+    title: 'Тренировки',
+    directions: 'Направления',
+    upcomingClasses: 'Ближайшие занятия',
+    all: 'Все',
+    spots: 'мест',
+    minutes: 'мин',
+    schedule: {
+      title: 'Расписание',
+      weekDays: {
+        mon: 'Пн',
+        tue: 'Вт',
+        wed: 'Ср',
+        thu: 'Чт',
+        fri: 'Пт',
+        sat: 'Сб',
+        sun: 'Вс',
+      },
+      filters: {
+        all: 'Все',
+        yoga: 'Yoga',
+        functional: 'Functional',
+        pilates: 'Pilates',
+        hiit: 'HIIT',
+        boxing: 'Boxing',
+      },
+      spots: 'мест',
+    },
+    personalTraining: {
+      label: 'Персональный тренинг',
+      title: 'Достигни целей быстрее',
+      text: 'Выбери своего тренера',
+      experienceSuffix: 'опыта',
+      pricePerHour: '{{price}} ₴/час',
+      noSlots: 'Нет свободных слотов',
+      cta: 'Забронировать тренировку',
+    },
+    types: {
+      gym: {
+        title: 'Тренажерный зал',
+        description: 'Современное оборудование и свободные веса',
+      },
+      group: {
+        title: 'Групповые занятия',
+        description: 'Yoga, Pilates, Functional и другие',
+      },
+      personal: {
+        title: 'Персональные тренировки',
+        description: 'Индивидуальный подход с тренером',
+      },
+      studio: {
+        title: 'Студии',
+        description: 'Cycling, Boxing, Dance',
+      },
+    },
+  },
+  nonMember: {
+    discovery: {
+      slides: {
+        about: {
+          title: 'Madrid International Lab',
+          subtitle: 'Центр инноваций',
+          description:
+            'Madrid International Lab — центр инноваций мэрии Мадрида, расположенный в историческом здании муниципальной лаборатории.',
+        },
+        coworking: {
+          title: 'Коворкинг для стартапов',
+          subtitle: 'Коворкинг',
+          description:
+            'Бесплатный коворкинг для инновационных проектов и зарубежных стартапов, рассчитанный примерно на 70 человек.',
+        },
+        events: {
+          title: 'События и экосистема',
+          subtitle: 'События',
+          description:
+            'Конференции, митапы и вебинары по инновациям и предпринимательству для стартапов, компаний и институтов.',
+        },
+        contact: {
+          title: 'Как присоединиться к iLAB',
+          subtitle: 'Присоединиться к iLAB',
+          description:
+            'Если вы стартап или компания, работающая с инновациями, свяжитесь с iLAB, чтобы узнать о возможностях резидентства и мероприятий.',
+        },
+      },
+      next: 'Далее',
+      start: 'Вернуться на главный экран',
+    },
+    quiz: {
+      questionLabel: 'Вопрос {{n}}',
+      continue: 'Продолжить',
+      getResult: 'Получить результат',
+      q1: {
+        question: 'Какая ваша главная цель?',
+        subtitle: 'Выберите то, что откликается больше всего',
+        a: 'Похудеть и улучшить форму',
+        b: 'Набрать мышечную массу',
+        c: 'Повысить выносливость',
+        d: 'Восстановление и релакс',
+      },
+      q2: {
+        question: 'Как часто вы планируете тренироваться?',
+        subtitle: 'Регулярность — ключ к результату',
+        a: '1–2 раза в неделю',
+        b: '3–4 раза в неделю',
+        c: '5+ раз в неделю',
+        d: 'Пока не уверен',
+      },
+      q3: {
+        question: 'Какой формат тренировок вам ближе?',
+        subtitle: 'У каждого формата есть свои преимущества',
+        a: 'Персональные с тренером',
+        b: 'Групповые занятия',
+        c: 'Самостоятельные тренировки',
+        d: 'Комбинированный подход',
+      },
+      q4: {
+        question: 'Что для вас важно кроме тренировок?',
+        subtitle: 'Фитнес — это больше чем спорт',
+        a: 'SPA и восстановление',
+        b: 'Здоровое питание',
+        c: 'Сообщество единомышленников',
+        d: 'Все перечисленное',
+      },
+      q5: {
+        question: 'Какой у вас опыт тренировок?',
+        subtitle: 'Мы адаптируем программу под вас',
+        a: 'Новичок',
+        b: 'Есть базовый опыт',
+        c: 'Опытный атлет',
+        d: 'Возвращаюсь после перерыва',
+      },
+    },
+    result: {
+      headerTitle: 'Ваш результат',
+      recommendationLabel: 'Рекомендация для вас',
+      bookTitle: 'Записаться на',
+      contactTitle: 'Оставьте контакт',
+      contactSubtitle: 'Мы свяжемся с вами для подтверждения',
+      nameLabel: 'Имя',
+      namePlaceholder: 'Ваше имя',
+      phoneLabel: 'Телефон',
+      back: 'Назад',
+      submit: 'Записаться',
+      successTitle: 'Спасибо!',
+      successText:
+        'Наш менеджер свяжется с вами в ближайшее время для подтверждения записи.',
+      bonusLabel: 'Ваш бонус',
+      bonusTitle: 'Бесплатный завтрак',
+      bonusText: 'в нашем ресторане при первом визите',
+      toHome: 'На главную',
+      bonusBannerLabel: 'Бонус при записи',
+      bonusBannerText: 'Бесплатный завтрак в ресторане',
+      booking: {
+        visit: {
+          title: 'Визит в клуб',
+          description: 'Ознакомительная экскурсия по клубу',
+          duration: '30 мин',
+        },
+        assessment: {
+          title: 'Фитнес-консультация',
+          description: 'Персональный assessment с тренером',
+          duration: '60 мин',
+        },
+        spa: {
+          title: 'SPA Trial',
+          description: 'Пробная SPA-процедура',
+          duration: '45 мин',
+        },
+      },
+      reco: {
+        recoverySpa: {
+          title: 'Recovery & SPA',
+          description:
+            'На основе ваших ответов мы рекомендуем начать с программы восстановления. Наши SPA-процедуры помогут снять стресс и подготовить тело к тренировкам.',
+        },
+        intensive: {
+          title: 'Intensive Training',
+          description:
+            'Ваша цель — трансформация! Рекомендуем персональные тренировки с нашими топ-тренерами для максимального результата.',
+        },
+        personal: {
+          title: 'Personal Training',
+          description:
+            'Для набора мышечной массы рекомендуем индивидуальную программу с персональным тренером и специальное питание.',
+        },
+        balanced: {
+          title: 'Balanced Program',
+          description:
+            'Рекомендуем комплексную программу, которая включает тренировки, восстановление и здоровое питание.',
+        },
+      },
+    },
+  },
+  login: {
+    title: 'Вход по DNI/NIE',
+    subtitle: 'Введите номер вашего испанского документа (DNI или NIE) для входа в систему',
+    dniLabel: 'DNI / NIE',
+    dniPlaceholder: 'например, 12345678A или X1234567B',
+    login: 'Войти',
+    notMember: 'Еще не участник?',
+    learnMore: 'Узнать больше',
+    errors: {
+      invalidDni: 'Введите корректный номер DNI или NIE',
+    },
+  },
+  recovery: {
+    title: 'Recovery & SPA',
+    categories: {
+      all: 'Все',
+      massage: 'Массаж',
+      spa: 'SPA',
+      sauna: 'Сауна',
+      pool: 'Бассейн',
+    },
+    procedures: {
+      relaxMassage: 'Релакс массаж',
+      sportsMassage: 'Спортивный массаж',
+      spaDetox: 'SPA-ритуал "Детокс"',
+      finnishSauna: 'Финская сауна',
+      hammam: 'Хаммам',
+      pool: 'Бассейн',
+      jacuzzi: 'Джакузи',
+      antiCelluliteMassage: 'Антицеллюлитный массаж',
+    },
+    book: 'Записаться',
+    unavailable: 'Недоступно',
+    cancellationPolicy: 'Отмена бесплатна за 24 часа до процедуры',
+    minutes: 'мин',
+  },
+  restaurant: {
+    title: 'Ресторан',
+    reserveTable: 'Резерв стола',
+    categories: {
+      breakfasts: 'Завтраки',
+      lunches: 'Обеды',
+      drinks: 'Напитки',
+      snacks: 'Снеки',
+    },
+    items: {
+      proteinBowl: {
+        name: 'Протеиновый боул',
+        description: 'Курица, киноа, авокадо, овощи',
+      },
+      veggieOmelet: {
+        name: 'Омлет с овощами',
+        description: '3 яйца, томаты, шпинат, фета',
+      },
+      greekSalad: {
+        name: 'Греческий салат',
+        description: 'Свежие овощи, оливки, фета',
+      },
+      steakVeggies: {
+        name: 'Стейк с овощами',
+        description: 'Говядина, овощи гриль',
+      },
+      smoothieEnergy: {
+        name: 'Смузи "Энергия"',
+        description: 'Банан, ягоды, протеин',
+      },
+      greenDetox: {
+        name: 'Зелёный детокс',
+        description: 'Шпинат, огурец, яблоко',
+      },
+      proteinBar: {
+        name: 'Протеиновый бар',
+        description: 'Шоколад, орехи',
+      },
+      nutsMix: {
+        name: 'Микс орехов',
+        description: 'Миндаль, кешью, грецкий',
+      },
+    },
+    cart: {
+      itemsCount: '{{count}} позиций',
+      order: 'Заказать',
+    },
+  },
+  foodDetail: {
+    notFound: 'Блюдо не найдено',
+    energyPerServing: 'Энергетическая ценность на порцию',
+    nutritionFacts: 'Пищевая ценность',
+    ingredients: 'Ингредиенты',
+    addToOrder: 'Добавить к заказу',
+    units: {
+      g: 'г',
+      kcal: 'kcal',
+    },
+    macros: {
+      protein: 'Белки',
+      fats: 'Жиры',
+      carbs: 'Углеводы',
+      fiber: 'Клетчатка',
+    },
+    ingredientsDict: {
+      chickenFillet: 'Куриное филе',
+      quinoa: 'Киноа',
+      avocado: 'Авокадо',
+      cucumber: 'Огурец',
+      tomatoes: 'Томаты',
+      spinach: 'Шпинат',
+      oliveOil: 'Оливковое масло',
+      eggs: 'Яйца',
+      feta: 'Фета',
+      butter: 'Сливочное масло',
+      bellPepper: 'Болгарский перец',
+      redOnion: 'Красный лук',
+      olives: 'Оливки',
+      beef: 'Говядина',
+      zucchini: 'Цукини',
+      eggplant: 'Баклажан',
+      garlic: 'Чеснок',
+      rosemary: 'Розмарин',
+      banana: 'Банан',
+      strawberry: 'Клубника',
+      blueberry: 'Черника',
+      wheyProtein: 'Протеин',
+      almondMilk: 'Миндальное молоко',
+      apple: 'Яблоко',
+      celery: 'Сельдерей',
+      ginger: 'Имбирь',
+      lemon: 'Лимон',
+      darkChocolate: 'Тёмный шоколад',
+      almonds: 'Миндаль',
+      coconutOil: 'Кокосовое масло',
+      stevia: 'Стевия',
+      cashews: 'Кешью',
+      walnuts: 'Грецкий орех',
+    },
+    items: {
+      proteinBowl: {
+        descriptionLong:
+          'Нежное куриное филе на гриле с киноа, свежим авокадо и сезонными овощами. Идеальный баланс белков и полезных жиров.',
+        ingredients: [
+          'chickenFillet',
+          'quinoa',
+          'avocado',
+          'cucumber',
+          'tomatoes',
+          'spinach',
+          'oliveOil',
+        ],
+      },
+      veggieOmelet: {
+        descriptionLong:
+          'Пышный омлет из трех яиц со свежими томатами, молодым шпинатом и нежной фетой.',
+        ingredients: ['eggs', 'tomatoes', 'spinach', 'feta', 'butter'],
+      },
+      greekSalad: {
+        descriptionLong:
+          'Классический средиземноморский салат из свежих овощей, оливок каламата и аутентичной греческой феты.',
+        ingredients: [
+          'cucumber',
+          'tomatoes',
+          'bellPepper',
+          'redOnion',
+          'olives',
+          'feta',
+          'oliveOil',
+        ],
+      },
+      steakVeggies: {
+        descriptionLong:
+          'Сочный стейк из мраморной говядины средней прожарки с овощами гриль и соусом чимичурри.',
+        ingredients: ['beef', 'zucchini', 'eggplant', 'bellPepper', 'garlic', 'rosemary'],
+      },
+      smoothieEnergy: {
+        descriptionLong:
+          'Насыщенный витаминами смузи с бананом, сезонными ягодами и сывороточным протеином для восстановления после тренировки.',
+        ingredients: ['banana', 'strawberry', 'blueberry', 'wheyProtein', 'almondMilk'],
+      },
+      greenDetox: {
+        descriptionLong:
+          'Освежающий детокс-сок из шпината, огурца и зелёного яблока. Отлично помогает перезагрузиться.',
+        ingredients: ['spinach', 'cucumber', 'apple', 'celery', 'ginger', 'lemon'],
+      },
+      proteinBar: {
+        descriptionLong:
+          'Домашний протеиновый батончик с тёмным шоколадом и орехами. Без сахара, на стевии.',
+        ingredients: ['wheyProtein', 'darkChocolate', 'almonds', 'coconutOil', 'stevia'],
+      },
+      nutsMix: {
+        descriptionLong:
+          'Премиальная смесь жареных орехов: миндаль, кешью и грецкий орех. Источник полезных жиров.',
+        ingredients: ['almonds', 'cashews', 'walnuts'],
+      },
+    },
+  },
+  profile: {
+    title: 'Профиль',
+    memberSince: 'Участник с {{year}}',
+    qrCodeTitle: 'QR-код для входа',
+    qrHint: 'Покажите код на турникете',
+    logout: 'Выйти',
+    version: 'Версия 1.0.0',
+    menu: {
+      membership: 'Членство',
+      history: 'История сервисов',
+      results: 'Мои результаты',
+      notifications: 'Уведомления',
+      language: 'Язык',
+      support: 'Поддержка',
+    },
+    membershipValue: 'Premium до {{date}}',
+    languageValue: {
+      en: 'Английский',
+      uk: 'Украинский',
+      ru: 'Русский',
+      es: 'Испанский',
+    },
+  },
+  error: {
+    title: 'Требуется обновление',
+    telegramUnavailable:
+      'Telegram WebApp недоступен. Пожалуйста, откройте приложение внутри Telegram.',
+    initFailed: 'Ошибка инициализации Telegram WebApp.',
+    updateTelegram:
+      'Обновите Telegram до последней версии для полной поддержки приложения.',
+    retry: 'Попробовать снова',
+    hint: 'Убедитесь, что у вас установлена последняя версия Telegram',
+  },
+} as const;
+
+export default ru;
+

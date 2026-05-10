@@ -1,0 +1,168 @@
+@use '../../styles/variables' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba($brand-black-title, 0.45);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $transition-normal;
+
+  &.overlayVisible {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  background: $surface-card;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transform: translateY(100%);
+  transition: transform $transition-normal;
+  padding-bottom: calc(env(safe-area-inset-bottom) + $spacing-lg);
+  box-shadow: 0 -4px 30px rgba($brand-black-title, 0.18);
+}
+
+.sheetOpen {
+  transform: translateY(0);
+}
+
+.handle {
+  width: 36px;
+  height: 4px;
+  background: #d6dae2;
+  border-radius: $border-radius-full;
+  margin: 10px auto $spacing-sm;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-xs $spacing-lg $spacing-md;
+  border-bottom: 1px solid $border-divider;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $brand-black-title;
+}
+
+.resetBtn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $brand-red;
+  cursor: pointer;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  transition: background $transition-fast;
+
+  &:active {
+    background: rgba($brand-red, 0.08);
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.label {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $brand-grey-middle;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 11px $spacing-md;
+  background: $brand-light;
+  border: 1.5px solid $border-subtle;
+  border-radius: $border-radius-md;
+  font-family: inherit;
+  font-size: $font-size-base;
+  color: $brand-black-title;
+  outline: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23838587' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacing-md center;
+  padding-right: 38px;
+  transition: border-color $transition-fast, background-color $transition-fast;
+
+  option {
+    background: $brand-white;
+    color: $brand-black-title;
+  }
+
+  &:focus {
+    border-color: $brand-red;
+    background-color: rgba($brand-red, 0.04);
+  }
+}
+
+.yearRow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.yearSep {
+  color: $brand-grey-middle;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  text-align: center;
+}
+
+.footer {
+  padding: 0 $spacing-lg;
+}
+
+.applyBtn {
+  width: 100%;
+  padding: $spacing-md;
+  background: $brand-red;
+  border: none;
+  border-radius: $border-radius-md;
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $brand-white;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  transition: all $transition-fast;
+  box-shadow: $shadow-red;
+
+  &:hover {
+    background: $brand-red-dark;
+  }
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.95;
+  }
+}

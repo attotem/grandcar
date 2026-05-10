@@ -1,0 +1,710 @@
+@use '../../../styles/variables' as *;
+
+.page {
+  padding: $spacing-lg;
+  padding-top: $tg-header-height;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  height: calc(100vh - #{$footer-height});
+  overflow-y: scroll;
+  padding-bottom: 100px;
+}
+
+// Header
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.welcome {
+  font-size: $font-size-sm;
+  color: $gray;
+}
+
+.userName {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $white;
+}
+
+.notificationBtn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($white, 0.05);
+  border: 1px solid rgba($white, 0.1);
+  border-radius: $border-radius-full;
+  color: $white;
+  font-size: $font-size-lg;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:active {
+    background: rgba($white, 0.1);
+    transform: scale(0.95);
+  }
+}
+
+.notificationDot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  background: $gold;
+  border-radius: 50%;
+}
+
+// Access Card
+.accessCard {
+  background: linear-gradient(135deg, rgba($gold, 0.15) 0%, rgba($gold, 0.05) 100%);
+  border: 1px solid rgba($gold, 0.3);
+  border-radius: $border-radius-xl;
+  padding: $spacing-lg;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.accessHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: $spacing-lg;
+}
+
+.accessInfo {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.accessLabel {
+  font-size: $font-size-xs;
+  color: $gray;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.membershipBadge {
+  display: inline-block;
+  padding: $spacing-xs $spacing-sm;
+  background: $gold;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  color: $black;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.daysLeft {
+  text-align: right;
+}
+
+.daysNumber {
+  display: block;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $white;
+  line-height: 1;
+}
+
+.daysText {
+  font-size: $font-size-xs;
+  color: $gray;
+}
+
+.qrSection {
+  display: flex;
+  justify-content: center;
+}
+
+.qrPreview {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-lg;
+  background: rgba($white, 0.05);
+  border-radius: $border-radius-md;
+  color: $gray;
+  font-size: $font-size-sm;
+
+  i {
+    font-size: $font-size-xl;
+    color: $gold;
+  }
+}
+
+.qrCode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.qrContainer {
+  width: 200px;
+  height: 200px;
+  padding: $spacing-md;
+  background: $white;
+  border-radius: $border-radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.qrHint {
+  font-size: $font-size-xs;
+  color: $gray;
+}
+
+// iLAB info
+.ilabInfo {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding: $spacing-lg;
+  background: rgba($white, 0.03);
+  border-radius: $border-radius-xl;
+  border: 1px solid rgba($white, 0.08);
+}
+
+.ilabInfoTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+.ilabInfoText {
+  font-size: $font-size-sm;
+  color: $gray;
+}
+
+// Quick Actions
+.quickActions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-sm;
+}
+
+.actionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-sm;
+  background: rgba($white, 0.03);
+  border: 1px solid rgba($white, 0.08);
+  border-radius: $border-radius-lg;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:active {
+    background: rgba($white, 0.06);
+    border-color: $gold;
+    transform: scale(0.95);
+  }
+}
+
+.actionIcon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($gold, 0.1);
+  border-radius: $border-radius-md;
+  font-size: $font-size-lg;
+  color: $gold;
+}
+
+.actionLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $white-muted;
+  text-align: center;
+}
+
+// Schedule Section
+.scheduleSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+.seeAllBtn {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: $font-size-sm;
+  color: $gold;
+  cursor: pointer;
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.scheduleList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.scheduleCard {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: rgba($white, 0.03);
+  border: 1px solid rgba($white, 0.08);
+  border-radius: $border-radius-lg;
+}
+
+.scheduleTime {
+  min-width: 50px;
+}
+
+.time {
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $gold;
+}
+
+.scheduleInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.scheduleTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+.scheduleTrainer {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-size-xs;
+  color: $gray;
+
+  i {
+    font-size: $font-size-sm;
+  }
+}
+
+.scheduleType {
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+}
+
+.personal {
+  background: rgba($gold, 0.15);
+  color: $gold;
+}
+
+.group {
+  background: rgba(#4ECDC4, 0.15);
+  color: #4ECDC4;
+}
+
+.emptySchedule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-xl;
+  background: rgba($white, 0.02);
+  border: 1px dashed rgba($white, 0.1);
+  border-radius: $border-radius-lg;
+  text-align: center;
+
+  i {
+    font-size: 32px;
+    color: $gray-dark;
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: $gray;
+  }
+}
+
+.bookBtn {
+  padding: $spacing-sm $spacing-lg;
+  background: $gradient-gold;
+  border: none;
+  border-radius: $border-radius-md;
+  font-family: inherit;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $black;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// Promo Banner
+.promoBanner {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  background: linear-gradient(135deg, rgba(#4ECDC4, 0.15) 0%, rgba(#4ECDC4, 0.05) 100%);
+  border: 1px solid rgba(#4ECDC4, 0.3);
+  border-radius: $border-radius-xl;
+}
+
+.promoContent {
+  flex: 1;
+}
+
+.promoLabel {
+  display: block;
+  font-size: $font-size-xs;
+  color: #4ECDC4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: $spacing-xs;
+}
+
+.promoTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $white;
+  margin-bottom: $spacing-xs;
+}
+
+.promoText {
+  font-size: $font-size-xs;
+  color: $gray;
+}
+
+.promoBtn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4ECDC4;
+  border: none;
+  border-radius: $border-radius-full;
+  color: $black;
+  font-size: $font-size-lg;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// Gamification Section
+.gamificationSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+// Progress Card
+.progressCard {
+  background: linear-gradient(135deg, rgba($gold, 0.15) 0%, rgba($gold, 0.05) 100%);
+  border: 1px solid rgba($gold, 0.3);
+  border-radius: $border-radius-xl;
+  padding: 24px 12px;
+}
+
+.progressHeader {
+  margin-bottom: $spacing-md;
+}
+
+.levelInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-sm;
+}
+
+.levelBadge {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-sm;
+  background: rgba($gold, 0.2);
+  border-radius: $border-radius-sm;
+  color: $gold;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+
+  i {
+    font-size: $font-size-base;
+  }
+}
+
+.levelNumber {
+  font-weight: $font-weight-bold;
+}
+
+.xpText {
+  font-size: $font-size-sm;
+  color: $gray;
+}
+
+.progressBarContainer {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.progressBar {
+  flex: 1;
+  height: 12px;
+  background: rgba($white, 0.1);
+  border-radius: $border-radius-full;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  background: $gradient-gold;
+  border-radius: $border-radius-full;
+  transition: width $transition-slow;
+  box-shadow: 0 0 10px rgba($gold, 0.5);
+}
+
+.progressPercent {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $gold;
+  min-width: 40px;
+  text-align: right;
+}
+
+// Achievements Card
+.achievementsCard {
+  background: rgba($white, 0.03);
+  border: 1px solid rgba($white, 0.08);
+  border-radius: $border-radius-xl;
+  padding: 24px 12px;
+}
+
+.achievementsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+}
+
+.achievementsTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+.achievementsCount {
+  font-size: $font-size-sm;
+  color: $gold;
+  font-weight: $font-weight-semibold;
+}
+
+.achievementsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-sm;
+}
+
+.achievementItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  background: rgba($white, 0.03);
+  border: 1px solid rgba($white, 0.08);
+  border-radius: $border-radius-md;
+  position: relative;
+  transition: all $transition-fast;
+}
+
+.achievementItem.unlocked {
+  border-color: rgba($gold, 0.3);
+  background: rgba($gold, 0.05);
+}
+
+.achievementItem.locked {
+  opacity: 0.5;
+}
+
+.achievementIcon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($gold, 0.15);
+  border-radius: $border-radius-md;
+  color: $gold;
+  font-size: $font-size-lg;
+  flex-shrink: 0;
+
+  i {
+    display: block;
+    line-height: 1;
+  }
+}
+
+.achievementItem.locked .achievementIcon {
+  background: rgba($white, 0.05);
+  color: $gray-dark;
+}
+
+.achievementTitle {
+  flex: 1;
+  font-size: $font-size-xs;
+  color: $white;
+  font-weight: $font-weight-medium;
+}
+
+.checkIcon {
+  color: $success;
+  font-size: $font-size-base;
+}
+
+// Leaderboard Card
+.leaderboardCard {
+  background: rgba($white, 0.03);
+  border: 1px solid rgba($white, 0.08);
+  border-radius: $border-radius-xl;
+  padding: 24px 12px;
+}
+
+.leaderboardHeader {
+  margin-bottom: $spacing-md;
+}
+
+.leaderboardTitle {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $white;
+
+  i {
+    color: $gold;
+    font-size: $font-size-xl;
+  }
+}
+
+.leaderboardList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.leaderboardItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-sm $spacing-md;
+  background: rgba($white, 0.03);
+  border: 1px solid rgba($white, 0.08);
+  border-radius: $border-radius-md;
+  transition: all $transition-fast;
+}
+
+.leaderboardItem.currentUser {
+  background: rgba($gold, 0.1);
+  border-color: rgba($gold, 0.3);
+}
+
+.rankBadge {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rankIcon {
+  font-size: $font-size-xl;
+  color: $gold;
+}
+
+.rankNumber {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $gray;
+}
+
+.userInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.userName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $white;
+}
+
+.userXP {
+  font-size: $font-size-xs;
+  color: $gray;
+}
+
+.currentBadge {
+  padding: $spacing-xs $spacing-sm;
+  background: $gold;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  color: $black;
+}

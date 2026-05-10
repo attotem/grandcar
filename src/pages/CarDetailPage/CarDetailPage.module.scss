@@ -1,0 +1,107 @@
+@use '../../styles/variables' as *;
+
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: $surface-page;
+  display: flex;
+  flex-direction: column;
+  padding-top: $tg-header-height;
+  padding-bottom: calc(#{$footer-height} + env(safe-area-inset-bottom) + $spacing-xl);
+  padding-inline: $spacing-md;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.stateText {
+  font-size: $font-size-sm;
+  color: $brand-grey-middle;
+  text-align: center;
+  padding: $spacing-xl;
+}
+
+.errorMessageInline {
+  font-size: $font-size-sm;
+  color: $brand-red;
+  text-align: center;
+  padding: $spacing-xl;
+}
+
+.extraInfo {
+  margin-top: $spacing-md;
+  padding: $spacing-lg;
+  border-radius: $border-radius-lg;
+  background: $surface-card;
+  box-shadow: $shadow-sm;
+  border: 1px solid $border-divider;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: $font-size-sm;
+  padding: $spacing-xs 0;
+  border-bottom: 1px solid $border-divider;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.label {
+  color: $brand-grey-middle;
+  text-transform: uppercase;
+  font-size: $font-size-xs;
+  letter-spacing: 0.6px;
+  font-weight: $font-weight-semibold;
+}
+
+.value {
+  color: $brand-black-title;
+  font-weight: $font-weight-semibold;
+}
+
+/* ── Contact manager button ───────────────────────────────── */
+
+.contactButton {
+  margin-top: $spacing-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-lg;
+  width: 100%;
+  background: $brand-red;
+  border: none;
+  border-radius: $border-radius-lg;
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $brand-white;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  box-shadow: $shadow-red;
+  transition: all $transition-fast;
+
+  i {
+    font-size: $font-size-xl;
+  }
+
+  &:hover {
+    background: $brand-red-dark;
+  }
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 10px rgba($brand-red, 0.25);
+  }
+}

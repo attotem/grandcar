@@ -1,0 +1,105 @@
+// ─────────────────────────────────────────────────────────────
+// Design tokens — Brand palette
+//
+//   --white:            #ffffff
+//   --light:            #f4f6f9
+//   --black-titles:     #191a26
+//   --red (brand):      #c11d1d
+//   --gray:             #393e41
+//   --grey-middle:      #838587
+//   --grey-dark-texts:  #393e41
+//
+// Scss variable names are kept stable across the codebase
+// (e.g. `$gold` is the brand accent, now red). Adding the
+// matching brand-named aliases for new code.
+// ─────────────────────────────────────────────────────────────
+
+// Brand palette (canonical names)
+$brand-white:       #ffffff;
+$brand-light:       #f4f6f9;
+$brand-black-title: #191a26;
+$brand-red:         #c11d1d;
+$brand-red-light:   #dc3535;
+$brand-red-dark:    #9c1717;
+$brand-gray:        #393e41;
+$brand-grey-middle: #838587;
+
+// Compatibility aliases (used across existing modules)
+$white:        $brand-white;
+$white-muted:  $brand-light;
+
+$black:         $brand-black-title;
+$black-light:   #262834;
+$black-lighter: #2f3140;
+
+// Brand accent — historical name `$gold` now maps to brand red
+$gold:       $brand-red;
+$gold-light: $brand-red-light;
+$gold-dark:  $brand-red-dark;
+
+$gray:      $brand-grey-middle;
+$gray-dark: $brand-gray;
+
+// Surface tokens
+$surface-page:    $brand-light;
+$surface-card:    $brand-white;
+$border-subtle:   #e2e6eb;
+$border-divider:  #f0f2f5;
+
+// Status colors
+$success: #1a9c5b;
+$error:   $brand-red;
+
+// Gradients
+$gradient-gold: linear-gradient(135deg, $brand-red 0%, $brand-red-light 50%, $brand-red 100%);
+$gradient-dark: linear-gradient(180deg, $brand-black-title 0%, $black-light 100%);
+$gradient-red:  $gradient-gold;
+
+// Layout
+$mobile-max-width: 480px;
+
+// Spacing scale
+$spacing-xs:  4px;
+$spacing-sm:  8px;
+$spacing-md:  16px;
+$spacing-lg:  24px;
+$spacing-xl:  32px;
+$spacing-2xl: 48px;
+
+$tg-header-height: 100px;
+$footer-height:    80px;
+
+// Radius scale
+$border-radius-sm:   8px;
+$border-radius-md:   12px;
+$border-radius-lg:   16px;
+$border-radius-xl:   24px;
+$border-radius-full: 9999px;
+
+// Type scale
+$font-family-main: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+$font-size-xs:   12px;
+$font-size-sm:   14px;
+$font-size-base: 16px;
+$font-size-lg:   18px;
+$font-size-xl:   20px;
+$font-size-2xl:  24px;
+$font-size-3xl:  32px;
+
+$font-weight-normal:   400;
+$font-weight-medium:   500;
+$font-weight-semibold: 600;
+$font-weight-bold:     700;
+
+// Motion
+$transition-fast:   150ms ease;
+$transition-normal: 300ms ease;
+$transition-slow:   500ms ease;
+
+// Shadows (light-theme tuned)
+$shadow-sm:   0 2px 6px rgba($brand-black-title, 0.06);
+$shadow-md:   0 6px 18px rgba($brand-black-title, 0.08);
+$shadow-lg:   0 12px 32px rgba($brand-black-title, 0.10);
+$shadow-gold: 0 6px 22px rgba($brand-red, 0.28);
+$shadow-red:  $shadow-gold;
