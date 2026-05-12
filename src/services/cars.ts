@@ -6,6 +6,7 @@ import type { CarFilters, FilterOptions } from '../components/FilterPanel';
 // Re-export commonly used types so consumers depend only on the service layer.
 export type { Car } from '../components/CarCard';
 export type { CarFilters, FilterOptions } from '../components/FilterPanel';
+export { emptyCarFilters } from '../components/FilterPanel';
 
 interface CarsListResponse {
   result: Car[];
@@ -44,6 +45,13 @@ export const getCars = async (
   if (filters.model) params.set('model', filters.model);
   if (filters.year_min) params.set('year_min', filters.year_min);
   if (filters.year_max) params.set('year_max', filters.year_max);
+  if (filters.body) params.set('body', filters.body);
+  if (filters.drive_type) params.set('drive_type', filters.drive_type);
+  if (filters.transmission) params.set('transmission', filters.transmission);
+  if (filters.fuel) params.set('fuel', filters.fuel);
+  if (filters.engine_rate) params.set('engine_rate', filters.engine_rate);
+  if (filters.price_min) params.set('price_min', filters.price_min);
+  if (filters.price_max) params.set('price_max', filters.price_max);
 
   const data = await apiGet<CarsListResponse>(
     `/cars/get_cars?${params.toString()}`,

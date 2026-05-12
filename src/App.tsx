@@ -1,11 +1,19 @@
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { SplashScreen } from './components/SplashScreen';
+import { SPLASH_DURATION_MS } from './config';
 import styles from './App.module.scss';
 
 function App() {
   const [error, setError] = useState<string | null>(null);
+  const [showSplash, setShowSplash] = useState(true);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const id = window.setTimeout(() => setShowSplash(false), SPLASH_DURATION_MS);
+    return () => window.clearTimeout(id);
+  }, []);
 
   useEffect(() => {
     if (window.Telegram?.WebApp) {
@@ -34,6 +42,10 @@ function App() {
       setError('Telegram WebApp недоступний. Будь ласка, відкрийте додаток через Telegram');
     }
   }, []);
+
+  if (showSplash) {
+    return <SplashScreen />;
+  }
 
   if (error) {
     return (

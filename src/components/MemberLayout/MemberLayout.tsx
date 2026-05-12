@@ -1,15 +1,21 @@
+import { useMemo } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styles from './MemberLayout.module.scss';
 
-const navItems = [
-  { path: '/', icon: 'lni lni-home-2', label: 'Авто' },
-  { path: '/favorites', icon: 'lni lni-star-fat', label: 'Избранное' },
-  { path: '/profile', icon: 'lni lni-user-4', label: 'Профиль' },
-];
-
 export const MemberLayout = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
+
+  const navItems = useMemo(
+    () => [
+      { path: '/', icon: 'lni lni-home-2', label: t('cars.nav.catalog') },
+      { path: '/favorites', icon: 'lni lni-star-fat', label: t('cars.nav.favorites') },
+      { path: '/profile', icon: 'lni lni-user-4', label: t('cars.nav.profile') },
+    ],
+    [t],
+  );
 
   return (
     <div className={styles.layout}>
@@ -23,7 +29,7 @@ export const MemberLayout = () => {
             const isActive =
               location.pathname === item.path ||
               (item.path !== '/' && location.pathname.startsWith(item.path));
-            
+
             return (
               <button
                 key={item.path}

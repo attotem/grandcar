@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../context/AuthContext';
 import { getFavoriteCars, type Car } from '../../services/cars';
 import { CarCard } from '../../components/CarCard';
 import styles from './FavoritesPage.module.scss';
 
 export const FavoritesPage = () => {
+  const { t } = useTranslation();
   const { isLoading: authLoading, isLoggedIn, login } = useAuth();
   const navigate = useNavigate();
   const [cars, setCars] = useState<Car[]>([]);
@@ -25,7 +27,7 @@ export const FavoritesPage = () => {
         if (!isLoggedIn) {
           const ok = await login();
           if (!ok) {
-            setError('Не удалось авторизоваться через Telegram. Откройте приложение из Telegram.');
+            setError(t('cars.favorites.authError'));
             return;
           }
         }
@@ -35,7 +37,7 @@ export const FavoritesPage = () => {
       } catch (err) {
         if (err instanceof DOMException && err.name === 'AbortError') return;
         console.error(err);
-        setError('Не удалось загрузить избранные машины. Попробуйте еще раз.');
+        setError(t('cars.favorites.loadError'));
       } finally {
         setLoading(false);
       }
@@ -43,21 +45,21 @@ export const FavoritesPage = () => {
 
     void loadCars();
     return () => controller.abort();
-  }, [authLoading, isLoggedIn, login]);
+  }, [authLoading, isLoggedIn, login, t]);
 
   return (
     <div className={styles.page}>
 
       <header className={styles.appHeader}>
-        <div className={styles.headerTitle}>Избранное</div>
-        <div className={styles.headerSub}>Сохранённые объявления</div>
+        <div className={styles.headerTitle}>{t('cars.favorites.title')}</div>
+        <div className={styles.headerSub}>{t('cars.favorites.subtitle')}</div>
       </header>
 
       <div className={styles.content}>
         <main className={styles.main}>
           {loading && (
             <div className={styles.stateBox}>
-              <p className={styles.stateText}>Загружаем избранные...</p>
+              <p className={styles.stateText}>{t('cars.favorites.loading')}</p>
             </div>
           )}
 
@@ -68,14 +70,14 @@ export const FavoritesPage = () => {
           {!loading && !error && cars.length === 0 && (
             <div className={styles.stateBox}>
               <div className={styles.stateIcon}>⭐</div>
-              <p className={styles.stateText}>Пока ничего нет</p>
-              <p className={styles.stateSub}>Добавляйте машины в избранное и они появятся здесь</p>
+              <p className={styles.stateText}>{t('cars.favorites.emptyTitle')}</p>
+              <p className={styles.stateSub}>{t('cars.favorites.emptyHint')}</p>
             </div>
           )}
 
           {!loading && !error && cars.length > 0 && (
             <>
-              <p className={styles.listMeta}>{cars.length} сохранено</p>
+              <p className={styles.listMeta}>{t('cars.favorites.savedCount', { count: cars.length })}</p>
               <div className={styles.carsGrid}>
                 {cars.map((car) => (
                   <CarCard

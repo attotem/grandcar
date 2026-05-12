@@ -169,6 +169,77 @@
   letter-spacing: -0.3px;
 }
 
+.priceCompare {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.priceCompareRow {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  width: 100%;
+}
+
+.priceOriginal {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $brand-grey-middle;
+  letter-spacing: -0.2px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  flex-shrink: 0;
+  margin-left: auto;
+  text-align: right;
+}
+
+.priceOriginalLabel {
+  font-size: 10px;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+  color: $brand-grey-middle;
+}
+
+.priceOriginalAmount {
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+
+.priceCurrent {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $brand-red;
+  letter-spacing: -0.3px;
+}
+
+.priceSavings {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.35;
+  color: $brand-grey-middle;
+
+  strong {
+    color: darken($brand-red, 6%);
+    font-weight: $font-weight-bold;
+  }
+}
+
+.marketNote {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.35;
+  color: $brand-grey-middle;
+
+  span {
+    font-weight: $font-weight-semibold;
+    color: $brand-black-title;
+  }
+}
+
 .meta {
   display: flex;
   align-items: center;

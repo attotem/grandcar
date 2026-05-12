@@ -1,12 +1,11 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../context/AuthContext';
 import { getCars, getFilters, type Car, type CarFilters, type FilterOptions } from '../../services/cars';
 import { CarCard } from '../../components/CarCard';
-import { FilterPanel } from '../../components/FilterPanel';
+import { FilterPanel, emptyCarFilters } from '../../components/FilterPanel';
 import styles from './WelcomePage.module.scss';
-
-const EMPTY_FILTERS: CarFilters = { make: '', model: '', year_min: '', year_max: '' };
 
 const SkeletonCard = () => (
   <div className={styles.skeletonCard}>
@@ -20,6 +19,7 @@ const SkeletonCard = () => (
 );
 
 export const WelcomePage = () => {
+  const { t } = useTranslation();
   const { isLoading: authLoading, isLoggedIn, login } = useAuth();
   const navigate = useNavigate();
   const [cars, setCars] = useState<Car[]>([]);
@@ -28,8 +28,8 @@ export const WelcomePage = () => {
 
   const [filterOpen, setFilterOpen] = useState(false);
   const [filterOptions, setFilterOptions] = useState<FilterOptions | null>(null);
-  const [draftFilters, setDraftFilters] = useState<CarFilters>(EMPTY_FILTERS);
-  const [appliedFilters, setAppliedFilters] = useState<CarFilters>(EMPTY_FILTERS);
+  const [draftFilters, setDraftFilters] = useState<CarFilters>(emptyCarFilters);
+  const [appliedFilters, setAppliedFilters] = useState<CarFilters>(emptyCarFilters);
 
   const activeFilterCount = Object.values(appliedFilters).filter(Boolean).length;
 
@@ -43,11 +43,11 @@ export const WelcomePage = () => {
     } catch (err) {
       if (err instanceof DOMException && err.name === 'AbortError') return;
       console.error(err);
-      setError('Не удалось загрузить список машин. Попробуйте еще раз.');
+      setError(t('cars.catalog.listLoadError'));
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -58,7 +58,7 @@ export const WelcomePage = () => {
       if (!isLoggedIn) {
         const ok = await login();
         if (!ok) {
-          setError('Не удалось авторизоваться через Telegram.');
+          setError(t('cars.catalog.authError'));
           setLoading(false);
           return;
         }
@@ -77,7 +77,7 @@ export const WelcomePage = () => {
     void init();
     return () => controller.abort();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authLoading, isLoggedIn, login]);
+  }, [authLoading, isLoggedIn, login, loadCars]);
 
   const handleApply = (filters: CarFilters) => {
     setAppliedFilters(filters);
@@ -104,7 +104,7 @@ export const WelcomePage = () => {
         <button
           className={`${styles.filterBtn} ${activeFilterCount > 0 ? styles.filterBtnActive : ''}`}
           onClick={handleOpenFilter}
-          aria-label="Фильтры"
+          aria-label={t('cars.catalog.filterAria')}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="4" y1="6" x2="20" y2="6"/>
@@ -112,7 +112,9 @@ export const WelcomePage = () => {
             <line x1="11" y1="18" x2="13" y2="18"/>
           </svg>
           <span className={styles.filterBtnLabel}>
-            {activeFilterCount > 0 ? `Фильтр (${activeFilterCount})` : 'Фильтр'}
+            {activeFilterCount > 0
+              ? t('cars.catalog.filterWithCount', { count: activeFilterCount })
+              : t('cars.catalog.filter')}
           </span>
         </button>
       </header>
@@ -134,14 +136,14 @@ export const WelcomePage = () => {
           {!loading && !error && cars.length === 0 && (
             <div className={styles.stateBox}>
               <div className={styles.stateIcon}>🚗</div>
-              <p className={styles.stateText}>Машины не найдены</p>
-              <p className={styles.stateSub}>Попробуйте изменить фильтры</p>
+              <p className={styles.stateText}>{t('cars.catalog.emptyTitle')}</p>
+              <p className={styles.stateSub}>{t('cars.catalog.emptyHint')}</p>
             </div>
           )}
 
           {!loading && !error && cars.length > 0 && (
             <>
-              <p className={styles.listMeta}>{cars.length} объявлений</p>
+              <p className={styles.listMeta}>{t('cars.catalog.listingsCount', { count: cars.length })}</p>
               <div className={styles.carsGrid}>
                 {cars.map((car) => (
                   <CarCard

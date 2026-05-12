@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import type { TFunction } from 'i18next';
+import { useTranslation } from 'react-i18next';
 import {
   clearViewedHistory,
   getViewedCars,
@@ -11,35 +13,35 @@ import styles from './ProfilePage.module.scss';
 const MANAGER_USERNAME = 'dmytro_obka';
 const MANAGER_LINK = `https://t.me/${MANAGER_USERNAME}`;
 
-const formatRelativeTime = (timestamp: number): string => {
+const formatRelativeTime = (timestamp: number, t: TFunction): string => {
   const diff = Date.now() - timestamp;
   const minutes = Math.floor(diff / 60_000);
   const hours = Math.floor(diff / 3_600_000);
   const days = Math.floor(diff / 86_400_000);
 
-  if (minutes < 1) return 'только что';
-  if (minutes < 60) return `${minutes} мин назад`;
-  if (hours < 24) return `${hours} ч назад`;
-  if (days === 1) return 'вчера';
-  if (days < 7) return `${days} дн назад`;
-  return new Date(timestamp).toLocaleDateString('ru-RU', {
+  if (minutes < 1) return t('cars.profile.justNow');
+  if (minutes < 60) return t('cars.profile.minutesAgo', { count: minutes });
+  if (hours < 24) return t('cars.profile.hoursAgo', { count: hours });
+  if (days === 1) return t('cars.profile.yesterday');
+  if (days < 7) return t('cars.profile.daysAgo', { count: days });
+  return new Date(timestamp).toLocaleDateString('uk-UA', {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
   });
 };
 
-const formatPrice = (price: string, currency: string): string => {
+const formatPrice = (price: string, currency: string, locale: string): string => {
   const value = Number(price);
   if (Number.isFinite(value) && value > 0) {
     try {
-      return value.toLocaleString('ru-RU', {
+      return value.toLocaleString(locale, {
         style: 'currency',
         currency,
         maximumFractionDigits: 0,
       });
     } catch {
-      return `${value.toLocaleString('ru-RU')} ${currency}`;
+      return `${value.toLocaleString(locale)} ${currency}`;
     }
   }
   return `${price} ${currency}`;
@@ -49,7 +51,7 @@ const getTelegramUser = () => {
   const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
   if (!user) return null;
   return {
-    name: [user.first_name, user.last_name].filter(Boolean).join(' ') || 'Пользователь',
+    name: [user.first_name, user.last_name].filter(Boolean).join(' ') || undefined,
     username: user.username,
     photo: user.photo_url,
     id: user.id,
@@ -57,9 +59,13 @@ const getTelegramUser = () => {
 };
 
 export const ProfilePage = () => {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const tgUser = useMemo(getTelegramUser, []);
   const [history, setHistory] = useState<ViewedCar[]>([]);
+
+  const numLocale =
+    i18n.language.startsWith('uk') ? 'uk-UA' : i18n.language.startsWith('ru') ? 'ru-RU' : 'en-US';
 
   useEffect(() => {
     setHistory(getViewedCars());
@@ -76,10 +82,10 @@ export const ProfilePage = () => {
 
   const handleClearHistory = useCallback(() => {
     if (history.length === 0) return;
-    if (!confirm('Очистить историю просмотров?')) return;
+    if (!confirm(t('cars.profile.clearHistoryConfirm'))) return;
     clearViewedHistory();
     setHistory([]);
-  }, [history.length]);
+  }, [history.length, t]);
 
   const handleRemoveItem = useCallback((e: React.MouseEvent, id: string) => {
     e.stopPropagation();
@@ -91,19 +97,23 @@ export const ProfilePage = () => {
     navigate(`/cars/${id}`);
   }, [navigate]);
 
+  const displayName = !tgUser
+    ? t('cars.profile.guest')
+    : (tgUser.name ?? t('cars.profile.defaultUserName'));
+  const mileageUnit = t('cars.carDetail.mileageUnit');
+
   return (
     <div className={styles.page}>
-      {/* ── User card ── */}
       <section className={styles.userCard}>
         <div className={styles.avatar}>
           {tgUser?.photo ? (
-            <img src={tgUser.photo} alt={tgUser.name} />
+            <img src={tgUser.photo} alt={displayName} />
           ) : (
             <i className="lni lni-user-4" />
           )}
         </div>
         <div className={styles.userInfo}>
-          <h2 className={styles.userName}>{tgUser?.name ?? 'Гость'}</h2>
+          <h2 className={styles.userName}>{displayName}</h2>
           {tgUser?.username && (
             <p className={styles.userMeta}>@{tgUser.username}</p>
           )}
@@ -113,11 +123,10 @@ export const ProfilePage = () => {
         </div>
       </section>
 
-      {/* ── Stats ── */}
       <section className={styles.stats}>
         <div className={styles.statBox}>
           <div className={styles.statValue}>{history.length}</div>
-          <div className={styles.statLabel}>Просмотрено</div>
+          <div className={styles.statLabel}>{t('cars.profile.viewed')}</div>
         </div>
         <div
           className={styles.statBox}
@@ -127,7 +136,7 @@ export const ProfilePage = () => {
           <div className={styles.statValue}>
             <i className="lni lni-star-fat" />
           </div>
-          <div className={styles.statLabel}>Избранное</div>
+          <div className={styles.statLabel}>{t('cars.profile.favorited')}</div>
         </div>
         <div
           className={styles.statBox}
@@ -137,21 +146,20 @@ export const ProfilePage = () => {
           <div className={styles.statValue}>
             <i className="lni lni-car-2" />
           </div>
-          <div className={styles.statLabel}>Каталог</div>
+          <div className={styles.statLabel}>{t('cars.profile.catalog')}</div>
         </div>
       </section>
 
-      {/* ── Viewed history ── */}
       <section className={styles.section}>
         <header className={styles.sectionHeader}>
-          <h3 className={styles.sectionTitle}>История просмотров</h3>
+          <h3 className={styles.sectionTitle}>{t('cars.profile.historyTitle')}</h3>
           {history.length > 0 && (
             <button
               type="button"
               className={styles.linkBtn}
               onClick={handleClearHistory}
             >
-              Очистить
+              {t('cars.profile.clear')}
             </button>
           )}
         </header>
@@ -159,16 +167,16 @@ export const ProfilePage = () => {
         {history.length === 0 ? (
           <div className={styles.emptyBox}>
             <i className="lni lni-eye" />
-            <p className={styles.emptyTitle}>Пока ничего не смотрели</p>
+            <p className={styles.emptyTitle}>{t('cars.profile.emptyHistoryTitle')}</p>
             <p className={styles.emptySub}>
-              Просмотренные авто будут появляться здесь автоматически
+              {t('cars.profile.emptyHistoryHint')}
             </p>
             <button
               type="button"
               className={styles.primaryGhost}
               onClick={() => navigate('/')}
             >
-              К каталогу
+              {t('cars.profile.toCatalog')}
             </button>
           </div>
         ) : (
@@ -195,21 +203,23 @@ export const ProfilePage = () => {
                     <div className={styles.historyMeta}>
                       <span>{car.year}</span>
                       <span className={styles.dot} />
-                      <span>{car.mileage_km.toLocaleString('ru-RU')} км</span>
+                      <span>
+                        {car.mileage_km.toLocaleString(numLocale)} {mileageUnit}
+                      </span>
                     </div>
                     <div className={styles.historyPrice}>
-                      {formatPrice(car.price, car.currency)}
+                      {formatPrice(car.price, car.currency, numLocale)}
                     </div>
                   </div>
                   <div className={styles.historyAside}>
                     <span className={styles.historyTime}>
-                      {formatRelativeTime(car.viewedAt)}
+                      {formatRelativeTime(car.viewedAt, t)}
                     </span>
                     <button
                       type="button"
                       className={styles.removeBtn}
                       onClick={(e) => handleRemoveItem(e, car.id)}
-                      aria-label="Удалить из истории"
+                      aria-label={t('cars.profile.removeFromHistory')}
                     >
                       <i className="lni lni-close" />
                     </button>
@@ -221,14 +231,13 @@ export const ProfilePage = () => {
         )}
       </section>
 
-      {/* ── Contact manager ── */}
       <button
         type="button"
         className={styles.contactButton}
         onClick={handleContactManager}
       >
         <i className="lni lni-telegram-original" />
-        <span>Связаться с менеджером</span>
+        <span>{t('cars.profile.contactManager')}</span>
       </button>
 
       <p className={styles.version}>GrandCar · v1.0</p>

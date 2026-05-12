@@ -16,11 +16,8 @@ function getStoredLanguage(): SupportedLanguage | null {
   return null;
 }
 
-/**
- * English is the default language (as requested).
- * Later we can add auto-detect from Telegram `language_code` here.
- */
-const initialLanguage: SupportedLanguage = getStoredLanguage() ?? 'en';
+/** Default UI language; override via localStorage key `pfc_lang`. */
+const initialLanguage: SupportedLanguage = getStoredLanguage() ?? 'uk';
 
 i18n.use(initReactI18next).init({
   resources: {

@@ -1,0 +1,69 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #191a26;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  width: min(220px, 72vw);
+}
+
+.pulse {
+  animation: splashPulse 2.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes splashPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.progressTrack {
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #9c1717, #c11d1d, #dc3535);
+  box-shadow: 0 0 14px rgba(193, 29, 29, 0.45);
+  animation-name: splashProgressFill;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes splashProgressFill {
+  to {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse {
+    animation: none;
+  }
+
+  .progressBar {
+    animation: none;
+    width: 100%;
+  }
+}

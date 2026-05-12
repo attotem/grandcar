@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 12px 32px rgba($brand-red, 0.2);
-  border: 1px solid $border-divider;
+  border: none;
   overflow: hidden;
 
   img {
@@ -29,24 +29,35 @@
   }
 }
 
-.logoText {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
+.logoOnDark {
+  margin-bottom: 0;
+
+  .logoBadge {
+    background: rgba($brand-white, 0.1);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  }
+
+  .logoSubtitle {
+    color: rgba($brand-white, 0.55);
+  }
 }
 
-.logoMain {
-  font-size: 32px;
-  font-weight: $font-weight-bold;
-  color: $brand-black-title;
-  letter-spacing: -0.5px;
+.logoLg {
+  .logoBadge {
+    width: 152px;
+    height: 152px;
+    border-radius: $border-radius-xl + 8px;
+
+    background: none;
+    box-shadow: none;
+  }
 }
 
-.logoSecondary {
+.logoSubtitle {
+  margin: 0;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
   color: $brand-grey-middle;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
+  letter-spacing: 0.35px;
+  text-align: center;
 }
